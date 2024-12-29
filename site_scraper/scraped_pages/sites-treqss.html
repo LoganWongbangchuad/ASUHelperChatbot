@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!-- $Id$ -->
+<!-- Copyright 2018-2022 Ellucian Company L.P. and its affiliates. -->
+<html ng-controller="AppController as app" lang="en" xml:lang="en"
+   xmlns="http://www.w3.org/1999/xhtml">
+<head >
+   <base href="/treqss/" />
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+   <meta charset="utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="theme-color" content="#783084" />
+   <meta name="msapplication-TileColor" content="#9f00a7" />
+   <meta name="msapplication-TileImage" content="https://cdn.elluciancloud.com/assets/1.6.0/favicon/mstile-144x144.png" />
+
+   <link rel="apple-touch-icon" sizes="57x57" href="https://cdn.elluciancloud.com/assets/1.6.0/favicon/apple-touch-icon-57x57.png"/>
+   <link rel="apple-touch-icon" sizes="60x60" href="https://cdn.elluciancloud.com/assets/1.6.0/favicon/apple-touch-icon-60x60.png"/>
+   <link rel="apple-touch-icon" sizes="72x72" href="https://cdn.elluciancloud.com/assets/1.6.0/favicon/apple-touch-icon-72x72.png"/>
+   <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.elluciancloud.com/assets/1.6.0/favicon/apple-touch-icon-76x76.png"/>
+   <link rel="apple-touch-icon" sizes="114x114" href="https://cdn.elluciancloud.com/assets/1.6.0/favicon/apple-touch-icon-114x114.png"/>
+   <link rel="apple-touch-icon" sizes="120x120" href="https://cdn.elluciancloud.com/assets/1.6.0/favicon/apple-touch-icon-120x120.png"/>
+   <link rel="apple-touch-icon" sizes="144x144" href="https://cdn.elluciancloud.com/assets/1.6.0/favicon/apple-touch-icon-144x144.png"/>
+   <link rel="apple-touch-icon" sizes="152x152" href="https://cdn.elluciancloud.com/assets/1.6.0/favicon/apple-touch-icon-152x152.png"/>
+   <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.elluciancloud.com/assets/1.6.0/favicon/apple-touch-icon-180x180.png"/>
+   <link rel="icon" type="image/png" href="https://cdn.elluciancloud.com/assets/1.6.0/favicon/favicon-32x32.png" sizes="32x32"/>
+   <link rel="icon" type="image/png" href="https://cdn.elluciancloud.com/assets/1.6.0/favicon/android-chrome-192x192.png" sizes="192x192"/>
+   <link rel="icon" type="image/png" href="https://cdn.elluciancloud.com/assets/1.6.0/favicon/favicon-96x96.png" sizes="96x96"/>
+   <link rel="icon" type="image/png" href="https://cdn.elluciancloud.com/assets/1.6.0/favicon/favicon-16x16.png" sizes="16x16"/>
+   <link rel="manifest" href="https://cdn.elluciancloud.com/assets/1.6.0/favicon/manifest.json"/>
+   <link rel="icon" href="https://cdn.elluciancloud.com/assets/1.6.0/favicon/favicon.ico"/>
+
+   <title>Angelo State University - Transfer Degree Planner</title>
+
+   <link rel="stylesheet" href="webjars/bootstrap/3.4.1/css/bootstrap.min.css" />
+   <link rel="stylesheet" href="webjars/awesome-bootstrap-checkbox/0.3.7/awesome-bootstrap-checkbox.css" />
+   <link rel="stylesheet" href="webjars/font-awesome/4.5.0/css/font-awesome.css" />      
+   <link href="css/ellucian-style.css" rel="stylesheet" />
+   <link href="css/ellucian-css.css" rel="stylesheet" type="text/css" />
+   <link href="css/ellucian-font.css" rel="stylesheet" type="text/css" />
+   
+   <link href="https://cdn.elluciancloud.com/assets/1.6.0/css/ellucian-design-system-ltr.min.css" rel="stylesheet"/>
+   <link href="css/TransferEquivalencySSStyles.css" rel="stylesheet" />
+   <link ng-href="TransferEquivalencySSLocalizedStyles.css" rel="stylesheet" />
+</head>
+<body role="application">
+   <ng-include src="'eds/icons/ellucian-icon-sprite.svg'"></ng-include>
+   <ng-include src="'eds/icons/logo-icon-sprite.svg'"></ng-include>
+
+   <!-- This container displays temporarily while app is loading -->
+   <div id="siteLoadingContainer" class="container">
+      <h1 id="siteLoading" >Transfer Equivalency Self-Service is loading...</h1>
+      <h2 id="siteLoadingError" class="hidden" >An error occurred while accessing the stateless API.</h2>
+   </div>
+   <div ng-include="'modals/new-logon-modal.html'"></div>
+   <div ng-include="'modals/existing-logon-modal.html'"></div>
+   <div ng-include="'modals/about-application-modal.html'"></div>
+   <div ng-cloak="" class="container-fluid content-wrapper fill" role="main">
+
+      <nav class="esg-header-bar">
+         <div class="esg-header-bar__logo">
+            <div class="esg-logo-container esg-logo-container__preferred">
+               <img class="esg-logo" src="images/ellucian-logo-transferequivalency.png" alt="{{app.msg['treqss.landing.logoTitle']}}" />
+               <span id="site-title" >Angelo State University</span>
+            </div>
+         </div>         
+         <ul class="esg-header-bar__menu">
+            <li class="esg-header-bar__menu-item">
+               <a href="" class="esg-header-bar__menu-link" 
+                  ng-show="app.features.isDebugPermitted()" 
+                  ng-click="app.navigate.toDebugging()"
+                  aria-label="{{app.msg['app.header.debugging.tooltip']}}"
+                  title="{{app.msg['app.header.debugging.tooltip']}}">
+                  <span class="esg-header-bar__icon esg-icon__container" aria-hidden="True">
+                     <svg class="esg-icon esg-icon--white">
+                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-settings"></use>
+                     </svg>
+                  <!-- Don't separate following span tags or an underscore displays on hover -->
+                  </span><span class="esg-header-bar__icon-label">
+                  {{app.msg['app.header.debugging.title']}}
+                  </span>
+               </a>
+            </li>
+            <li class="esg-header-bar__menu-item">
+               <a href=""
+                  class="esg-header-bar__menu-link"
+                  data-toggle="modal" data-target="#aboutApplicationModal"
+                  aria-label="{{app.msg['app.header.aboutIcon.title.tooltip']}}"
+                  title="{{app.msg['app.header.aboutIcon.title.tooltip']}}">
+                  <span class="esg-header-bar__icon esg-icon__container" aria-hidden="True">
+                     <svg class="esg-icon esg-icon--white">
+                        <use xlink:href="#icon-info"></use>
+                     </svg>
+                  </span>
+                  <span class="esg-header-bar__icon-label">
+                     {{app.msg['app.header.aboutIcon.title']}}
+                  </span>
+                </a>
+            </li>
+            <li class="esg-header-bar__menu-item">
+               <a class="esg-header-bar__menu-link" ng-href="help/webhelp/index.html" target="_blank"
+                  aria-label="{{app.msg['app.header.helpIcon.tooltip']}}"
+                  title="{{app.msg['app.header.helpIcon.tooltip']}}">
+                  <span class="esg-header-bar__icon esg-icon__container" aria-hidden="True">
+                     <svg class="esg-icon esg-icon--white">
+                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-help"></use>
+                     </svg>
+                  </span><span class="esg-header-bar__icon-label">
+                  {{app.msg['app.header.helpIcon.title']}}
+                  </span>
+               </a>
+            </li>
+            <li class="esg-header-bar__menu-item">
+               <a href="" class="esg-header-bar__menu-link"
+                  ng-click="app.authenticationFactory.logout()"
+                  ng-show="app.applicant.isAuthenticated()"
+                  aria-label="{{app.msg['app.header.logoutIcon.tooltip']}}"
+                  title="{{app.msg['app.header.logoutIcon.tooltip']}}">
+                  <span class="esg-header-bar__icon esg-icon__container">
+                     <svg class="esg-icon esg-icon--white">
+                     <use xlink:href="#icon-sign-out"></use>
+                     </svg>
+                  </span>
+                  <span class="esg-header-bar__icon-label">
+                  {{app.msg['app.header.logoutIcon.title']}}
+                  </span>
+               </a>
+            </li>
+         </ul>
+      </nav>
+
+      <div class="container-fluid">
+
+         <div class="page-header">
+            <div class="row">
+               <div class="col-xs-12 col-sm-9">
+                  <div class="product-title">{{app.msg['app.header']}}</div>                  
+               </div>
+               <div class="col-xs-12 col-sm-3">
+                  <div class="row row-centered">
+
+                     <!-- Refresh icon to clear the data to initial state -->
+                     <div class="col-xs-4 col-centered" ng-hide='app.navigate.isActiveRoot()'>
+                        <a href="" ng-click="app.startOver()"
+                           aria-label="{{app.msg['app.header.startOver.title']}}"
+                           title="{{app.msg['app.header.startOver.title']}}">
+                              <span class="esg-icon__container">
+                                 <svg class="esg-icon">
+                                 <use xlink:href="#icon-refresh"></use>
+                                 </svg>
+                              </span>
+                        </a>
+                     </div>
+
+                     <!-- save icon on the page header nav bar -->
+                     <div class="col-xs-4 col-centered"
+                        ng-hide="app.navigate.isActiveRoot() || 
+                           (!app.settings['treq.selfService.persistence.enableShpAccount'] &amp;&amp; !app.settings['treq.selfService.persistence.enableSocial.facebook']) || 
+                           (!app.settings['treq.selfService.persistence.enableShpAccount'] &amp;&amp; app.applicant.getUser().isAnonymous)"
+                        ng-class="{'icon-disabled': !app.applicant.isModelDirty(), 'icon-enabled': app.applicant.isModelDirty()}">
+                        <span ng-show="app.applicant.isAuthenticated()">
+                           <a href="" ng-click="app.saveApplicant()"
+                              aria-label="{{app.msg['app.header.save.title']}}"
+                              title="{{app.msg['app.header.save.title']}}">
+                              <span class="esg-icon__container">
+                                 <svg class="esg-icon">
+                                 <use xlink:href="#icon-save"></use>
+                                 </svg>
+                              </span>
+                           </a>
+                        </span>
+                        <span ng-hide="app.applicant.isAuthenticated()">
+                           <a href="" data-toggle="modal" data-target="#createLogonModal"
+                              aria-label="{{app.msg['app.header.save.title']}}"
+                              title="{{app.msg['app.header.save.title']}}"> 
+                              <span class="esg-icon__container">
+                                 <svg class="esg-icon">
+                                 <use xlink:href="#icon-save"></use>
+                                 </svg>
+                              </span>
+                           </a>
+                        </span>
+                     </div>
+
+                     <!-- ellipses icon on the page header nav bar -->
+                     <div class="col-xs-4 col-centered visible-xs-block visible-sm-block"
+                        ng-show="app.navigate.isMoreMenuActive()">
+                        <a href="" ng-click="app.uiModel.toggleSlider()"
+                           aria-label="{{app.msg['app.header.ellipsesIcon.title']}}"
+                           title="{{app.msg['app.header.ellipsesIcon.title']}}">
+                              <span class="esg-icon__container">
+                                 <svg class="esg-icon esg-icon--up">
+                                 <use xlink:href="#icon-more"></use>
+                                 </svg>
+                              </span>
+                        </a>
+                     </div>
+
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="" ng-hide='app.navigate.isActiveRoot()'>
+         <ol class="esg-step-progress">
+            <li ng-click="app.navigate.toGoals()" aria-labelledby="basicsLink"
+               class="esg-step-progress__item"
+               ng-class="{'esg-is-active': app.navigate.isActiveGoals(), 'esg-is-previous': app.navigate.isActiveTransfer() || app.navigate.isActiveResults()}">
+               <a id="basicsLink" href="" class="esg-step-progress__link hidden-xs">{{app.msg['treqss.navigate.basics']}}</a>
+            </li>
+            <li ng-click="!app.applicant.isRequirementSatisfied() || app.navigate.toTransferWork()"
+               aria-labelledby="transferLink"
+               class="esg-step-progress__item"
+               ng-class="{'esg-is-active': app.navigate.isActiveTransfer(), 'esg-is-previous': app.navigate.isActiveResults(), 'not-allowed': !app.applicant.isRequirementSatisfied() }"
+               ng-disabled="!app.applicant.isRequirementSatisfied()">
+               <a id="transferLink" class="esg-step-progress__link hidden-xs" ng-disabled="!app.applicant.isRequirementSatisfied()"
+                  ng-class="{'not-allowed': !app.applicant.isRequirementSatisfied() }">
+                  {{app.msg['treqss.navigate.transfer']}}
+               </a>
+            </li>
+            <li ng-click="!app.applicant.isRequirementSatisfied() || app.navigate.toResults()"
+               aria-labelledby="resultsLink"
+               ng-disabled="!app.applicant.isRequirementSatisfied()" 
+               class="esg-step-progress__item"
+               ng-class="{'esg-is-active': app.navigate.isActiveResults(), 'esg-is-previous': false, 'not-allowed': !app.applicant.isRequirementSatisfied() }">
+               <a id="resultsLink" class="esg-step-progress__link hidden-xs" ng-disabled="!app.applicant.isRequirementSatisfied()"
+                  ng-class="{'not-allowed': !app.applicant.isRequirementSatisfied() }">
+                  {{app.msg['treqss.navigate.results']}}
+               </a>
+            </li>
+         </ol>
+      </div>
+
+      <div class="help-block" ng-show="app.uiModel.isSaveError()" align="center">
+         <span class="icon-error"></span>
+         <span>{{app.msg['app.save.error']}}</span>
+      </div>
+      <div role="main" ui-view=""></div>
+
+   </div>
+
+</body>
+
+<script src="webjars/iframe-resizer/3.4.2/iframeResizer.js"></script>
+<script src="webjars/modernizr/2.8.3/modernizr.js"></script>
+<script src="webjars/jquery/3.6.0/jquery.js"></script>
+<script src="webjars/angularjs/1.8.2/angular.js"></script>
+<script src="webjars/angularjs/1.8.2/angular-resource.js"></script>
+<script src="webjars/angularjs/1.8.2/angular-cookies.js"></script>
+<script src="webjars/angularjs/1.8.2/angular-sanitize.js"></script>
+<script src="webjars/angularjs/1.8.2/angular-route.js"></script>
+<script src="webjars/angularjs/1.8.2/angular-aria.js"></script>
+<script src="webjars/angularjs/1.8.2/angular-messages.js"></script>
+<script src="webjars/restangular/1.5.1/restangular.js"></script>
+<script src="webjars/underscorejs/1.8.3/underscore.js"></script>
+<script src="webjars/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="webjars/angular-spring-data-rest/0.4.4/dist/angular-spring-data-rest.js"></script>
+<script src="webjars/angular-input-match/1.4.1/dist/angular-input-match.js"></script>
+<script src="webjars/angular-ui-router/1.0.20/release/angular-ui-router.js"></script>
+<script src="webjars/angular-ui-bootstrap/1.2.5/ui-bootstrap.js"></script>
+
+<script src="js/ellucian-theme.js"></script>
+
+<script src="js/FacebookAuthenticationModule.js"></script>
+<script src="js/GeneralDirectives.js"></script>
+<script src="js/DegreeworksFilters.js"></script>
+<script src="js/AppModule.js"></script>
+<script src="js/AppConstantsModule.js"></script>
+<script src="js/SchoolsModule.js"></script>
+<script src="js/LoginModule.js"></script>
+
+<script src="js/MappingModule.js"></script>
+<script src="js/external/angular-endless-scroll.min.js"></script>
+<script src="js/external/jquery.format.js"></script>
+<script src="js/GoalsModule.js"></script>
+<script src="js/ResultsModule.js"></script>
+<script src="js/MonitoringModule.js"></script>
+
+<script src="webjars/angularjs/1.8.2/i18n/angular-locale_en.js"></script>
+
+<script src="webjars/clipboard/1.5.16/dist/clipboard.min.js"></script>
+<script src="webjars/ngclipboard/1.1.1/dist/ngclipboard.js"></script>
+</html>

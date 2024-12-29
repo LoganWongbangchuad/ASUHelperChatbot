@@ -1,0 +1,598 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <title>Banner Page Builder</title>
+    
+
+    
+    
+
+    
+
+    <meta charset="utf-8"/>
+    <meta name="dir" content="ltr"/>
+    <meta name="synchronizerToken" content="b8c4044d-7331-4153-be3c-63f130f0718c"/>
+
+    <meta name="logLevel" content="ERROR"/>
+    <meta name="maxInactiveInterval" content="14400"/>
+    <meta name="transactionTimeout" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <link rel="apple-touch-icon" href="images/applicationIcon.png" />
+    <link rel="apple-touch-startup-image" href="images/applicationStartup.png">
+    <meta name="keepAliveURL" content="/BannerExtensibility/keepAlive/data"/>
+    <meta name="ssbMepDesc" content=""/>
+    <meta name="fullName" content=""/>
+    <meta name="loginEndpoint" content="https://pagebuilder.prod.angelo.edu/BannerExtensibility/customPage/page/pbadm.ssoauth?url=/"/>
+    <meta name="logoutEndpoint" content=""/>
+    <meta name="guestLoginEnabled" content="false"/>
+    <meta name="userLocale" content="en"/>
+    <meta name="footerFadeAwayTime" content="10000"/>
+    <meta name="hideSSBHeaderComps" content="false">
+    <meta name="openSSBInExperience" content="false">
+    <meta name="menuEndPoint" content="/BannerExtensibility/ssb/menu"/>
+    <meta name="menuBaseURL" content="/BannerExtensibility/ssb"/>
+    
+    
+    <meta name="aboutUrl" content=""/>
+    <meta name="aboutUrlContextPath" content="/BannerExtensibility/ssb"/>
+    <meta name="contextPath" content="/BannerExtensibility"/>
+    <meta name="headerAttributes" content=""/>
+    <meta name="privacyPolicyUrl" content=""/>
+    <meta name="requestContext" content="/BannerExtensibility"/>
+    <meta name="isUsageTrackingEnabled" content=""/>
+    <meta name="usageTrackingURL" content="/BannerExtensibility/ssb/userPreference/fetchUsageTracking"/>
+    <meta name="isLanguageSettingRequired" content="false"/>
+    <meta name="switchTojqueryLegacy" content="false"/>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/BannerExtensibility/assets/eds/apple-touch-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/BannerExtensibility/assets/eds/apple-touch-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/BannerExtensibility/assets/eds/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/BannerExtensibility/assets/eds/apple-touch-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/BannerExtensibility/assets/eds/apple-touch-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/BannerExtensibility/assets/eds/apple-touch-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/BannerExtensibility/assets/eds/apple-touch-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/BannerExtensibility/assets/eds/apple-touch-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/BannerExtensibility/assets/eds/apple-touch-icon-180x180.png"/>
+    <link rel="shortcut icon" type="image/png" sizes="32x32" href="/BannerExtensibility/assets/eds/favicon-32x32.png"/>
+    <link rel="shortcut icon" type="image/png" sizes="192x192" href="/BannerExtensibility/assets/eds/android-chrome-192x192.png"/>
+    <link rel="shortcut icon" type="image/png" sizes="96x96" href="/BannerExtensibility/assets/eds/favicon-96x96.png"/>
+    <link rel="shortcut icon" type="image/png" sizes="16x16" href="/BannerExtensibility/assets/eds/favicon-16x16.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/BannerExtensibility/assets/eds/favicon.ico"/>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+        <link rel="stylesheet" href="/BannerExtensibility/assets/modules/pageBuilderLTR-mf.css" />
+    
+
+    
+        <script type="text/javascript" src="/BannerExtensibility/assets/modules/pageBuilderJQuery-370-mf.js" ></script>
+    
+    <script type="text/javascript" src="/BannerExtensibility/assets/modules/pageBuilderJQuery-mf.js" ></script>
+
+    
+
+    <script type="text/javascript">
+
+        var rootWebApp = "\u002fBannerExtensibility\u002f";
+        var resourceBase = "\u002fBannerExtensibility\u002finternalPb\u002f";
+        var templatesLocation = "\u002fBannerExtensibility\u002fassets\u002ftemplate";
+        var user = {
+  "authenticated": false,
+  "loginName": "__grails.anonymous.user__",
+  "fullName": "Anonymous",
+  "oracleUserName": "",
+  "isSuperUser": false
+};
+        var gridLocale = 'en';
+        var params = {
+  "controller": "customPage",
+  "action": "page",
+  "id": "ASU_transferEquivalency"
+};
+        if (!window.console) {
+            console = {log: function() {}};
+        }
+        // inject services and controller modules to be registered with the global ng-app
+        var myCustomServices = ['ngResource', 'ui.grid', 'ui.grid.i18n','ui.grid.edit','ui.grid.selection','ui.grid.resizeColumns', 'ui.grid.cellNav','ui', 'pbrun.directives', 'ngSanitize', 'xe-ui-components','ui.grid.autoResize'];
+        var pageControllers = {};
+
+        var transactionTimeoutMeta    = $( "meta[name=transactionTimeout]" ),
+            transactionTimeoutSeconds = ( transactionTimeoutMeta.length == 1 ? parseInt( transactionTimeoutMeta.attr( "content" ) ) : 30 ),
+            transactionTimeoutPadding = 10 * 1000,
+            transactionTimeoutMilli   = ( transactionTimeoutSeconds * 1000 ) + transactionTimeoutPadding;
+
+        $.ajaxSetup( { timeout: transactionTimeoutMilli } );
+
+          document.getElementsByName('headerAttributes')[0].content = JSON.stringify({
+            "pageTitle": ""
+        });
+
+        var dateTimeLocale = "en" ;
+    
+</script>
+
+
+
+    
+<!-- sitemesh -->
+<meta name="layout" content="bannerSelfServicePBPage"/>
+<!-- import custom stylesheets -->
+<link type="text/css" rel="stylesheet" href="/BannerExtensibility/cssRender?name=pbDefault" />
+
+<!--meta name="layout" content="simple"/-->
+
+<script type="text/javascript">
+  var pageId = "ASUTransferEquivalency";
+  var controllerId = "CustomPageController_ASUTransferEquivalency"
+  pageControllers[controllerId] =
+function ($scope ,$locale,$q,$templateCache,pbDataSet,pbResource,pbAddCommon,uiGridConstants) {
+    $scope._controllerId = controllerId;
+    $scope._user = user;
+    $scope._params = params;
+    $scope._contextRoot = rootWebApp;
+    $scope._now = new Date();
+    // page specific code
+    $scope.TE_R_main = pbResource('virtualDomains.asu_treq_main');
+
+    $scope.TE_G_mainDS = pbDataSet ( $scope,
+    {
+        componentId: "TE_G_main",
+        resource: $scope.TE_R_main,
+        queryParams: '{p_sbgi_code : $scope.TE_S_college,p_subject_code : $scope.TE_S_subject}',
+        autoPopulate: false,
+        selectValueKey: null,
+        selectInitialValue: null
+        ,pageSize: 50
+,postQuery: function(data,response){
+var widths = [ '8%', '8%', '*', '6%',
+  '8%', '8%', '8%', '*', '6%', '*'];
+for ( var i in widths  ) {
+  $scope.TE_G_maingridApi.grid.columns[i].width = widths[i];
+}
+$scope.TE_G_maingridApi.grid.refresh();
+
+if ($scope.TE_G_mainDS.data.length > 0){
+  $("#pbid-TE_L_error-container").addClass("hidden");
+  $scope.TE_B_below_college_visible = true;
+} else {
+  if ($scope.TE_S_subject) {
+    $scope.TE_B_below_college_visible = true;
+    $("#pbid-TE_L_error").text("No results for selected subject.");
+  } else {
+    $scope.TE_B_below_college_visible = false;
+    $("#pbid-TE_L_error").text("No results for selected college.");
+  }
+  $("#pbid-TE_L_error-container").removeClass("hidden");
+}
+}
+    });
+
+        var TE_G_mainGridControlPanel = '';
+        $scope.TE_G_mainGrid = {
+            columnDefs: [
+            
+                   { field: 'SUBJ_CODE_TRNS', displayName: 'Subject',
+                     cellTemplate: '<span role="application" ng-keydown="[37,38,39,40,9,27,13].includes($event.keyCode)?grid.appScope.TE_G_mainDS.gridKeyPress($event, this):return "  class="moveFocus0" tabindex="0" rowid="{{rowRenderIndex}}"> <input name="TE_D_t_subject"  class="pb-grid  pb-display " ng-class="TE_D_t_subject_style" style="background-color:transparent; border:0; width: 100%; height:{{rowHeight}}px"  readonly     aria-label="Subject"  ng-model="MODEL_COL_FIELD"  ng-click="grid.appScope.TE_G_mainDS.setCurrentRecord(row.entity);"  tabindex="-1" /></span>'
+                     },
+
+                   { field: 'CRSE_NUMB_TRNS', displayName: 'Number',
+                     cellTemplate: '<span role="application" ng-keydown="[37,38,39,40,9,27,13].includes($event.keyCode)?grid.appScope.TE_G_mainDS.gridKeyPress($event, this):return "  class="moveFocus1"  rowid="{{rowRenderIndex}}"> <input name="TE_D_t_number"  class="pb-grid  pb-display " ng-class="TE_D_t_number_style" style="background-color:transparent; border:0; width: 100%; height:{{rowHeight}}px"  readonly     aria-label="Number"  ng-model="MODEL_COL_FIELD"  ng-click="grid.appScope.TE_G_mainDS.setCurrentRecord(row.entity);"  tabindex="-1" /></span>'
+                     },
+
+                   { field: 'TRNS_TITLE', displayName: 'Title',
+                     cellTemplate: '<span role="application" ng-keydown="[37,38,39,40,9,27,13].includes($event.keyCode)?grid.appScope.TE_G_mainDS.gridKeyPress($event, this):return "  class="moveFocus2"  rowid="{{rowRenderIndex}}"> <input name="TE_D_t_title"  class="pb-grid  pb-display " ng-class="TE_D_t_title_style" style="background-color:transparent; border:0; width: 100%; height:{{rowHeight}}px"  readonly     aria-label="Title"  ng-model="MODEL_COL_FIELD"  ng-click="grid.appScope.TE_G_mainDS.setCurrentRecord(row.entity);"  tabindex="-1" /></span>'
+                     },
+
+                   { field: 'TRNS_LOW_HRS', displayName: 'Hours',
+                     cellTemplate: '<span role="application" ng-keydown="[37,38,39,40,9,27,13].includes($event.keyCode)?grid.appScope.TE_G_mainDS.gridKeyPress($event, this):return "  class="moveFocus3"  rowid="{{rowRenderIndex}}"> <input name="TE_D_t_hours"  class="pb-grid  pb-display " ng-class="TE_D_t_hours_style" style="background-color:transparent; border:0; width: 100%; height:{{rowHeight}}px"  readonly     aria-label="Hours"  ng-model="MODEL_COL_FIELD"  ng-click="grid.appScope.TE_G_mainDS.setCurrentRecord(row.entity);"  tabindex="-1" /></span>'
+                     },
+
+                   { field: 'CONNECTOR', displayName: 'Connector',
+                     cellTemplate: '<span role="application" ng-keydown="[37,38,39,40,9,27,13].includes($event.keyCode)?grid.appScope.TE_G_mainDS.gridKeyPress($event, this):return "  class="moveFocus4"  rowid="{{rowRenderIndex}}"> <input name="TE_D_asu_connector"  class="pb-grid  pb-display " ng-class="TE_D_asu_connector_style" style="background-color:transparent; border:0; width: 100%; height:{{rowHeight}}px"  readonly     aria-label="Connector"  ng-model="MODEL_COL_FIELD"  ng-click="grid.appScope.TE_G_mainDS.setCurrentRecord(row.entity);"  tabindex="-1" /></span>'
+                     },
+
+                   { field: 'SUBJ_CODE_INST', displayName: 'Subject',
+                     cellTemplate: '<span role="application" ng-keydown="[37,38,39,40,9,27,13].includes($event.keyCode)?grid.appScope.TE_G_mainDS.gridKeyPress($event, this):return "  class="moveFocus5"  rowid="{{rowRenderIndex}}"> <input name="TE_D_asu_subject"  class="pb-grid  pb-display " ng-class="TE_D_asu_subject_style" style="background-color:transparent; border:0; width: 100%; height:{{rowHeight}}px"  readonly     aria-label="Subject"  ng-model="MODEL_COL_FIELD"  ng-click="grid.appScope.TE_G_mainDS.setCurrentRecord(row.entity);"  tabindex="-1" /></span>'
+                     },
+
+                   { field: 'CRSE_NUMB_INST', displayName: 'Number',
+                     cellTemplate: '<span role="application" ng-keydown="[37,38,39,40,9,27,13].includes($event.keyCode)?grid.appScope.TE_G_mainDS.gridKeyPress($event, this):return "  class="moveFocus6"  rowid="{{rowRenderIndex}}"> <input name="TE_D_asu_number"  class="pb-grid  pb-display " ng-class="TE_D_asu_number_style" style="background-color:transparent; border:0; width: 100%; height:{{rowHeight}}px"  readonly     aria-label="Number"  ng-model="MODEL_COL_FIELD"  ng-click="grid.appScope.TE_G_mainDS.setCurrentRecord(row.entity);"  tabindex="-1" /></span>'
+                     },
+
+                   { field: 'INST_TITLE', displayName: 'Title',
+                     cellTemplate: '<span role="application" ng-keydown="[37,38,39,40,9,27,13].includes($event.keyCode)?grid.appScope.TE_G_mainDS.gridKeyPress($event, this):return "  class="moveFocus7"  rowid="{{rowRenderIndex}}"> <input name="TE_D_asu_title"  class="pb-grid  pb-display " ng-class="TE_D_asu_title_style" style="background-color:transparent; border:0; width: 100%; height:{{rowHeight}}px"  readonly     aria-label="Title"  ng-model="MODEL_COL_FIELD"  ng-click="grid.appScope.TE_G_mainDS.setCurrentRecord(row.entity);"  tabindex="-1" /></span>'
+                     },
+
+                   { field: 'INST_CREDITS_USED', displayName: 'Hours',
+                     cellTemplate: '<span role="application" ng-keydown="[37,38,39,40,9,27,13].includes($event.keyCode)?grid.appScope.TE_G_mainDS.gridKeyPress($event, this):return "  class="moveFocus8"  rowid="{{rowRenderIndex}}"> <input name="TE_D_asu_hours"  class="pb-grid  pb-display " ng-class="TE_D_asu_hours_style" style="background-color:transparent; border:0; width: 100%; height:{{rowHeight}}px"  readonly     aria-label="Hours"  ng-model="MODEL_COL_FIELD"  ng-click="grid.appScope.TE_G_mainDS.setCurrentRecord(row.entity);"  tabindex="-1" /></span>'
+                     },
+
+                   { field: 'INST_COMMENTS', displayName: 'Comments',
+                     cellTemplate: '<span role="application" ng-keydown="[37,38,39,40,9,27,13].includes($event.keyCode)?grid.appScope.TE_G_mainDS.gridKeyPress($event, this):return "  class="moveFocus9"  rowid="{{rowRenderIndex}}"> <input name="TE_D_asu_comments"  class="pb-grid  pb-display " ng-class="TE_D_asu_comments_style" style="background-color:transparent; border:0; width: 100%; height:{{rowHeight}}px"  readonly     aria-label="Comments"  ng-model="MODEL_COL_FIELD"  ng-click="grid.appScope.TE_G_mainDS.setCurrentRecord(row.entity);"  tabindex="-1" /></span>'
+                     }
+            ],
+            data: 'TE_G_mainDS.data',
+            enableColumnResize: true,
+            enablePaging: true,
+            showGridFooter:true,
+            useCustomPagination: true,
+            useExternalPagination : true,
+            gridFooterTemplate: $templateCache.get('gridFooter.html').replace('#gridControlPanel#',TE_G_mainGridControlPanel).replace(/#gridName#/g,'TE_G_main'),
+            jqueryUIDraggable:true,
+            pagingOptions: $scope.TE_G_mainDS.pagingOptions,
+            selectedItems: $scope.TE_G_mainDS.selectedRecords,
+            showColumnMenu: true,
+            showFilter:true,
+            showFooter: true,
+            sortInfo: $scope.TE_G_mainDS.sortInfo,
+            totalServerItems: $scope.TE_G_mainDS.totalCount,
+            enableRowSelection: true, 
+            enableRowHeaderSelection: false,
+            useExternalSorting: true,
+            enableColumnMenus: false,
+            i18n: gridLocale,
+            multiSelect: false 
+        };
+        
+        $scope.geti18n = function(label){
+            return window.uiGridI18n[label];
+        }
+         $scope.TE_G_mainGrid.onRegisterApi= function(gridApi) {
+            $scope.TE_G_maingridApi = gridApi;
+            $scope.TE_G_maingridApi.core.on.sortChanged( $scope, $scope.sortChanged );
+            $scope.sortChanged($scope.TE_G_maingridApi.grid, [ $scope.TE_G_mainGrid.columnDefs[1] ] );
+            $scope.TE_G_maingridApi.selection.on.rowSelectionChanged($scope,function(row){
+                $scope.TE_G_mainDS.selectedRecords = $scope.TE_G_maingridApi.selection.getSelectedRows();
+              });
+          }
+        
+        $scope.$watch('TE_G_mainDS.pagingOptions', function(newVal, oldVal) {
+            if (newVal !== oldVal) {
+                if( newVal.currentPage && oldVal.currentPage ) {
+                    $scope.TE_G_mainDS.load({all:false,paging:true});
+                }
+            }
+        }, true);
+        $scope.$watch('TE_G_mainDS.sortInfo', function(newVal, oldVal) {
+            if ( (newVal.fields.join(',') !== oldVal.fields.join(','))||(newVal.directions.join(',') !== oldVal.directions.join(',')) ) {
+                $scope.TE_G_mainDS.load({all:false,paging:true});
+            }
+        }, true);
+        $scope.sortChanged= function(grid, sortColumns){
+            if(sortColumns.length>0 && sortColumns[0] && sortColumns[0].name){
+                let fields=[];
+                let directions=[];
+                let count=0;
+                sortColumns.forEach(function(it){
+                    fields[count]=it.name;
+                    directions[count]=it.sort?it.sort.direction:'asc';
+                    count++;
+                });
+                grid.options.sortInfo.fields = fields;
+                grid.options.sortInfo.directions = directions;
+            }
+            
+        }
+        $scope.$watch('TE_G_mainDS.selectedRecords[0]', function(newVal, oldVal) {
+                if (newVal !== oldVal ) {
+                    $scope.TE_G_mainDS.setCurrentRecord(newVal);
+                     
+                }
+            });
+            
+        
+$scope.TE_R_states = pbResource('virtualDomains.asu_treq_state');
+
+    $scope.TE_S_stateDS = pbDataSet ( $scope,
+    {
+        componentId: "TE_S_state",
+        resource: $scope.TE_R_states,
+        queryParams: '{}',
+        autoPopulate: true,
+        selectValueKey: "STATE_CODE",
+        selectInitialValue: null
+        
+,onUpdate: function(item){
+$scope.TE_S_collegeDS.load();
+}
+,postQuery: function(data,response){
+$(document).ready(function() {
+    setTimeout(function() {
+        const headerViewport = $('.ui-grid-header-viewport').first();
+        const customHeaderRow = $('<div/>', {
+            'class': 'ui-grid-header-custom-row',
+            'css': { 'display': 'flex', 'width': '100%' }
+        }).prependTo(headerViewport.parent());
+
+        $('<div/>', {
+            'text': 'Course',
+            'class': 'custom-header-cell-1',
+            'css': {
+                'text-align': 'center',
+                'padding': '10px',
+                'border-right': '1px solid #ddd',
+                'flex': '0 1 auto' // Adjusted for direct width manipulation
+            }
+        }).appendTo(customHeaderRow);
+
+        $('<div/>', {
+            'text': 'Angelo State University Course Equivalent',
+            'class': 'custom-header-cell-2',
+            'css': {
+                'text-align': 'center',
+                'padding': '10px',
+                'flex-grow': 1 // Ensures it takes the remaining space
+            }
+        }).appendTo(customHeaderRow);
+
+        function adjustCustomHeaderWidths() {
+            let totalWidthForFirst4Columns = 0;
+            $('.ui-grid-header-cell:lt(4)').each(function() {
+                totalWidthForFirst4Columns += $(this).outerWidth();
+            });
+
+            $('.custom-header-cell-1').css('width', totalWidthForFirst4Columns + 'px');
+            // The second custom header cell automatically adjusts due to flex-grow
+        }
+
+        adjustCustomHeaderWidths(); // Initial adjustment
+        setInterval(adjustCustomHeaderWidths, 100); // Continuous adjustment
+    }, 200);
+});
+}
+    });
+
+$scope.TE_R_colleges = pbResource('virtualDomains.asu_treq_college');
+
+    $scope.TE_S_collegeDS = pbDataSet ( $scope,
+    {
+        componentId: "TE_S_college",
+        resource: $scope.TE_R_colleges,
+        queryParams: '{p_state : $scope.TE_S_state}',
+        autoPopulate: false,
+        selectValueKey: "SBGI_CODE",
+        selectInitialValue: null
+        
+,onUpdate: function(item){
+$scope.TE_S_subjectDS.load();
+}
+    });
+
+$scope.TE_R_subjects = pbResource('virtualDomains.asu_treq_subjects');
+
+    $scope.TE_S_subjectDS = pbDataSet ( $scope,
+    {
+        componentId: "TE_S_subject",
+        resource: $scope.TE_R_subjects,
+        queryParams: '{p_sbgi_code : $scope.TE_S_college}',
+        autoPopulate: false,
+        selectValueKey: "CUR_COLL_SUBJ",
+        selectInitialValue: null
+        
+,onUpdate: function(item){
+$scope.TE_G_mainDS.load();
+}
+,postQuery: function(data,response){
+$scope.TE_G_mainDS.load();
+}
+    });
+
+
+
+    $scope.TE_B_main_visible = true;
+    $scope.TE_B_below_college_visible = false;
+  $scope.ASUTransferEquivalency_style='';
+  $scope.TE_B_main_style='container-fluid';
+  $scope.TE_B_notes_style='';
+  $scope.TE_S_state_style='';
+  $scope.TE_S_college_style='';
+  $scope.TE_B_below_college_style='';
+  $scope.TE_S_subject_style='';
+  $scope.TE_L_info_style='';
+  $scope.TE_G_main_style='';
+  $scope.TE_D_t_subject_style='';
+  $scope.TE_D_t_number_style='';
+  $scope.TE_D_t_title_style='';
+  $scope.TE_D_t_hours_style='';
+  $scope.TE_D_asu_connector_style='';
+  $scope.TE_D_asu_subject_style='';
+  $scope.TE_D_asu_number_style='';
+  $scope.TE_D_asu_title_style='';
+  $scope.TE_D_asu_hours_style='';
+  $scope.TE_D_asu_comments_style='';
+  $scope.TE_L_error_style='hidden';
+
+    // Copyright 2013-2016 Ellucian Company L.P. and its affiliates.
+pbAddCommon($scope);
+    $scope.externalScope=$scope
+}/* End Controller */
+;
+</script>
+
+
+    <link rel='stylesheet' type='text/css' href='https://bannertheme.prod.angelo.edu/BannerExtensibility/Theme/getTheme?name=asu-logo-only&template=BannerExtensibility-9_18_mod'>
+    
+    
+        
+<div ng-cloak id="enhanceUserExpDiv" dir="auto">
+    <xe-popup-modal show-close-button="modalcloseButtonShownEnhanceUserExp" show="modalEnhanceUserExpShown" focusbackelement="tools" pageheader="Enhance your Experience" aria-live="assertive">
+        <popup-content ng-if="showEnhanceUserExpDiv">
+            <div class="xe-modal-footer" id="enhanceUserExpPopupContentId">
+                <p class="xe-modal-footer-copyright-info">
+                    Please indicate whether we may use 3rd party analytics and non-essential cookies to improve your experience and our applications.<br><br>
+                    If you agree, the data we collect through these tools may be stored and processed in any country in which Ellucian or its sub-processors maintain facilities or personnel, including the United States.<br><br>
+                    Read the Ellucian privacy notice for more on cookies and analytics <a target="_blank" href="https://www.ellucian.com/privacy" role="link">Ellucian Privacy Notice</a></p>
+            </div>
+            <div class="enhanceUserExpButtonContainer" id="buttonContainer">
+                <xe-button ng-click="saveUsageTracking(false)" xe-id="noThanksBtn" xe-field="noThanksBtn" xe-disabled="disableNoThanksButton" xe-type="secondary" xe-label="No Thanks"></xe-button>
+                <xe-button ng-click="saveUsageTracking(true)" xe-id="acceptBtn" xe-field="acceptBtn" xe-disabled="disableAcceptButton" xe-type="primary" xe-label="Accept"></xe-button>
+            </div>
+            <footer class="enhanceUserExpFooter" role="contentinfo">
+                <p >&copy; 2013-2024 Ellucian Company L.P. and its affiliates. All rights reserved.
+                </p>
+            </footer>
+        </popup-content>
+    </xe-popup-modal>
+</div>
+    
+
+</head>
+    <body>
+        <div id="dialogAppDiv"></div>
+        <div id="popupContainerDiv"></div>
+        <div ng-app="BannerOnAngular">
+            <div id="splash"></div>
+            <div id="spinner" class="spinner spinner-img" style="display:none;">
+        </div>
+
+        <script type="text/javascript" src="/BannerExtensibility/assets/modules/pageBuilder-mf.js" ></script>
+
+        
+            <script type="text/javascript">
+                var mepcodeChanged='';
+                if(null !== mepcodeChanged && undefined !== mepcodeChanged && mepcodeChanged == "true"){
+                    $(document).bind('notification-use-ready', function (e) {
+                        mepcodeNotificationAddition(window.mepCode)
+                    });
+                }
+            </script>
+        
+   <div id="content" role="main" ng-controller="CustomPageController_ASUTransferEquivalency"  class="customPage container-fluid">
+   
+         
+<div id='pbid-TE_B_main'  ng-class='TE_B_main_style'  class="pb-block" ng-show="TE_B_main_visible" null> <h2 class="pb-block-label" id='pbid-TE_B_main-label' tabindex='0'>ASU Transfer Equivalency</h2> 
+<div id='pbid-TE_B_notes-container'  ng-class='TE_B_notes_style'  class="pb-block-item-container pb-literal" role="application" >
+  <span id='pbid-TE_B_notes'   class="pb-block pb-literal pb-item "   tabindex="-1">Not all courses offered at all institutions have equivalencies built at this time. If a course you are looking for is not listed, please contact the Office of Admissions at (325) 942-2041.<hr></span>
+
+</div> <div id='pbid-TE_S_state-container'  ng-class='TE_S_state_style'  class="pb-block-item-container pb-select" role="application" >
+ <label class="pb-block pb-select pb-item pb-label  " id='pbid-TE_S_state-label' null null for="pbid-TE_S_state"  /*aria-labelledby="pbid-TE_S_state"*/> State / Province: * </label> 
+<select required  id='pbid-TE_S_state' ng-keypress=TE_S_stateDS.openDropDown("pbid-TE_S_state-Option",$event); class="pb-block pb-select pb-item "   ng-model="TE_S_state" ng-change="TE_S_stateDS.setCurrentRecord(TE_S_state);TE_S_stateDS.onUpdate(item);"   
+  ng-options="item.STATE_CODE as item.STATE_DESCRIPTION for item in TE_S_stateDS.data" tabindex="0"> 
+   <option id="pbid-TE_S_state-Option" style="display:none" value=""></option> 
+</select>
+</div> <div id='pbid-TE_S_college-container'  ng-class='TE_S_college_style'  class="pb-block-item-container pb-select" role="application" >
+ <label class="pb-block pb-select pb-item pb-label  " id='pbid-TE_S_college-label' null null for="pbid-TE_S_college"  /*aria-labelledby="pbid-TE_S_college"*/> College: * </label> 
+<select required  id='pbid-TE_S_college' ng-keypress=TE_S_collegeDS.openDropDown("pbid-TE_S_college-Option",$event); class="pb-block pb-select pb-item "   ng-model="TE_S_college" ng-change="TE_S_collegeDS.setCurrentRecord(TE_S_college);TE_S_collegeDS.onUpdate(item);"   
+  ng-options="item.SBGI_CODE as item.DESCRIPTION for item in TE_S_collegeDS.data" tabindex="0"> 
+   <option id="pbid-TE_S_college-Option" style="display:none" value=""></option> 
+</select>
+</div> 
+<div id='pbid-TE_B_below_college'  ng-class='TE_B_below_college_style'  class="pb-block" ng-show="TE_B_below_college_visible" null>  
+<div id='pbid-TE_S_subject-container'  ng-class='TE_S_subject_style'  class="pb-block-item-container pb-select" role="application" >
+ <label class="pb-block pb-select pb-item pb-label  " id='pbid-TE_S_subject-label' null null for="pbid-TE_S_subject"  /*aria-labelledby="pbid-TE_S_subject"*/>Subject:</label> 
+<select   id='pbid-TE_S_subject' ng-keypress=TE_S_subjectDS.openDropDown("pbid-TE_S_subject-Option",$event); class="pb-block pb-select pb-item "   ng-model="TE_S_subject" ng-change="TE_S_subjectDS.setCurrentRecord(TE_S_subject);TE_S_subjectDS.onUpdate(item);"   
+  ng-options="item.CUR_COLL_SUBJ as item.CUR_COLL_SUBJ for item in TE_S_subjectDS.data" tabindex="0"> 
+   <option id="pbid-TE_S_subject-Option" style="display:none" value=""></option> 
+</select>
+</div> <div id='pbid-TE_L_info-container'  ng-class='TE_L_info_style'  class="pb-block-item-container pb-literal" role="application" >
+ <label class="pb-block pb-literal pb-item pb-label  " id='pbid-TE_L_info-label' null null for="pbid-TE_L_info"  /*aria-labelledby="pbid-TE_L_info"*/><hr><h4>Chart Definitions:</h4></label> <span id='pbid-TE_L_info'   class="pb-block pb-literal pb-item "   tabindex="-1"><details><summary style="display:list-item"><b>CEAD</b></summary>
+<p>Core, Non-Equivalent Advanced</p>
+<p>These courses <em>DO</em> transfer, but have no exact equivalent to any of ASU's course offerings.</p>
+<p>May count toward degree requirements.</p>
+</details>
+<details><summary style="display:list-item"><b>CENA</b></summary>
+<p>Core, Non-Equivalent</p>
+<p>These courses <em>DO</em> transfer, but have no exact equivalent to any of ASU's course offerings.</p>
+<p>May count toward degree requirements.</p>
+</details>
+<details><summary style="display:list-item"><b>NEAD</b></summary>
+<p>Non-Equivalent, Advanced</p>
+<p>These courses <em>DO</em> transfer, but have no exact equivalent to any of ASU's course offerings.</p>
+<p>May count toward degree requirements.</p>
+</details>
+<details><summary style="display:list-item"><b>NENA</b></summary>
+<p>Non-Equivalent, Non-Advanced</p>
+<p>These courses <em>DO</em> transfer, but have no exact equivalent to any of ASU's course offerings.</p>
+<p>Majority of credits count as ASU electives.</p>
+</details></span>
+
+</div> 
+                        
+<h4 class="pb-grid-label" id='pbid-TE_G_main-label' tabindex='0'>Transfer Equivalency Chart<br><h5>{{ TE_S_collegeDS.currentRecord.FULL_ADDRESS }}</h5></h4>
+<div role="application" id='pbid-TE_G_main' class="gridStyle" ui-grid="TE_G_mainGrid"
+                          ng-class='TE_G_main_style'  
+                         external-scopes="externalScope"
+                         ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize class="grid"></div>
+</div>
+<div id='pbid-TE_L_error-container'  ng-class='TE_L_error_style'  class="pb-block-item-container pb-literal" role="application" >
+  <span id='pbid-TE_L_error'   class="pb-block pb-literal pb-item "   tabindex="-1">temp</span>
+
+</div> </div>
+</div>
+<div ng-controller='homePageUrlCtr'><div ng-view></div>
+   <input name='pageURL' value='./ASU_transferEquivalency' id= 'homeURL' hidden='true'/></div>
+
+        <script >
+        var extensibilityInfo = {
+  "application": "BannerExtensibility",
+  "page": "customPage",
+  "url": "/BannerExtensibility/",
+  "pluginUrl": "/BannerExtensibility/plugins/web-app-extensibility-10.5/static/html/",
+  "admin": false,
+  "extensions": {},
+  "resources": null
+}
+        window.mepCode='';
+    </script><script type="text/javascript">
+            window.uiGridI18n={}
+            window.uiGridI18n = {
+                ngAggregateLabel:          'items',
+                ngGroupPanelDescription:   'Drag a column header here and drop it to group by that column.',
+                ngSearchPlaceHolder:       'Search...',
+                ngMenuText:                'Choose Columns:',
+                ngShowingItemsLabel:       'Showing Records:',
+                ngTotalItemsLabel:         'Records Found:',
+                ngSelectedItemsLabel:      'Selected Records:',
+                ngPageSizeLabel:           'Per Page',
+                ngPagerFirstTitle:         'First Page',
+                ngPesheetInclude:          'Next Page',
+                ngPagerPrevTitle:          'Previous Page',
+                ngPagerLastTitle:          'Last Page',
+                direction:                 'ltr',
+                styleLeft:                 'left',
+                styleRight:                'right',
+                maxPageLabel:              'of',
+                pageLabel:                 'Page',
+                next:                      'Next page',
+                last:                      'Last page',
+                previous:                  'Previous page',
+                first:                     'First page'
+            };
+            yepnope({
+                test : window.JSON,
+                nope : '/BannerExtensibility/assets/json2.js'
+            });
+
+            $(window).on('load',function() {
+                _.defer( function() {
+                    $( "#splash" ).remove();
+                });
+                $('#content').find('button, a, input:not([class~="pb-boolean"]), select, textarea, label, [tabindex]:not([tabindex="-1"])').not(':header').eq(0).focus();
+            });
+            $.i18n.map = {"aurora.areas_label_about_title": "About","aurora.areas_label_browse_description": "Banner Menu. Short cut key is Alt+M","aurora.areas_label_browse_title": "Banner Menu Alt+M","aurora.areas_label_home_description": "Home. Short cut key is Alt+Q","aurora.areas_label_home_title": "Home Alt+Q","aurora.areas_label_profile_description": "Profile. Short cut is Alt+P","aurora.areas_label_profile_title": "Profile Alt+P","aurora.areas_label_tools_description": "Tools. Short cut is Alt+L","aurora.areas_label_tools_title": "Tools Alt+L","aurora.guestuserdetails_signin": "Guest Sign In","aurora.openitems_label_closeAll": "Close All","aurora.openitems_label_closeSelected": "Close Selected","aurora.preferences_label": "Preferences","aurora.privacypolicy_label": "Privacy Policy","aurora.toolsmenu.keyboard.shortcuts.heading": "Keyboard shortcuts","aurora.userdetails_help": "Help","aurora.userdetails_signin": "Sign In","aurora.userdetails_signin_description": "Sign In. Short cut is Ctrl+Shift+F","aurora.userdetails_signin_title": "Sign In Ctrl+Shift+F","aurora.userdetails_signout": "Sign Out","backbone.paging.controls.count.per.page": "{0} per page","backbone.paging.controls.first": "First","backbone.paging.controls.last": "Last","backbone.paging.controls.next": "Next","backbone.paging.controls.of": "of","backbone.paging.controls.oneof": "1 of","backbone.paging.controls.page": "Page","backbone.paging.controls.page.of.pages": "Page {0} of {1}","backbone.paging.controls.per.page": "Per Page","backbone.paging.controls.previous": "Previous","barchart.viewmore.help.label": "Drag mouse to the left/right or use left/right arrow keys to see more data","changeExpiredPassword.password.match.error": "Passwords did not match","changeExpiredPassword.password.required.error": "All Password Fields are required.","dataTable.columnFilter.label": "Show/Hide Column","dataTable.columnFilter.selectAll": "Select All","dataTable.sort.ascending.label": "ascending","dataTable.sort.descending.label": "descending","dataTable.sortable.label": "Sortable","datepicker.toggle.text": "Show Hijri","default.calendar": "gregorian","default.calendar.gregorian.translation": "en_US@calendar=gregorian","default.calendar1": "gregorian","default.century.above.pivot": "1900","default.century.below.pivot": "2000","default.century.pivot": "50","default.copyright.endyear": "2024","default.copyright.startyear": "2013","default.date.format": "MM/dd/yyyy","default.dateEntry.format": "MM/dd/yy","default.firstDayOfTheWeek": "0","default.gregorian.dayNames": "Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday","default.gregorian.dayNamesMin": "Su,Mo,Tu,We,Th,Fr,Sa","default.gregorian.dayNamesShort": "Sun,Mon,Tue,Wed,Thu,Fri,Sat","default.gregorian.monthNames": "January,February,March,April,May,June,July,August,September,October,November,December","default.gregorian.monthNamesShort": "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec","default.language.direction": "ltr","default.none": "None","default.percent": "%","default.time.am": "AM","default.time.decrement": "Decrement","default.time.format": "HH:mm","default.time.increment": "Increment","default.time.pm": "PM","default.time.watermark.format": "HH:mm","default.timepicker.time.format": "HH:mm","footer.company_name": "{0}-{1} Ellucian Company L.P. and its affiliates.","footer.other_info": "All rights reserved.","js.banner.general.aip.notification.prompt.dismiss": "Dismiss","js.banner.general.aip.notification.prompt.message": "You have active action item(s) available for your review.","js.banner.general.aip.notification.prompt.view.actionitems": "View Action Item(s)","js.dataTable.page": "Page","js.dataTable.pageOf": "of","js.dataTable.pageOfOne": "1 of","js.dataTable.sEmptyTable": "No data available in table","js.dataTable.sInfo": "Records found: _TOTAL_","js.dataTable.sInfoEmpty": "Records found: 0","js.dataTable.sInfoFiltered": "(filtered from _MAX_ total records)","js.dataTable.sLengthMenu": "Per Page _MENU_","js.dataTable.sZeroRecords": "Nothing found - sorry","js.datepicker.dateFormat": "mm/dd/yyyy","js.datepicker.info": "To change year use CTRL + SHIFT + Page Up or Page DOWN keys. To change month use Page Up or Page DOWN keys. To select week-day use UP or DOWN or LEFT or RIGHT keys. To reset to current date use CTRL + SHIFT + HOME. Use F9 again or ESC to close the calendar.","js.datepicker.nextJumpStatus": "Show the next year     \n Ctrl + Shift + PgDn","js.datepicker.nextStatus": "Show the next month PgDn","js.datepicker.prevJumpStatus": "Show the previous year \n Ctrl + Shift + PgUp","js.datepicker.prevStatus": "Show the previous month PgUp","js.datepicker.selectText": "Select","js.datepicker.tooltipDateFormat": "DD, MMMM d, yyyy","js.grid.columns.button": "Columns","js.grid.noData": "No data available.","js.grid.recordsFound": "Records: {0}","js.grid.toggleSortBy": "Sort by {0}","js.input.datepicker.dateformatinfo": "Date format is","js.input.datepicker.info": "Press F9 to open/close the calendar","js.input.timepicker.info": "Press F9 to open/close the Timepicker","js.net.hedtech.banner.ajax.continue.button": "Continue","js.net.hedtech.banner.ajax.error.message": "A server call failed with error code '{0}'.","js.net.hedtech.banner.ajax.loading": "Loading","js.net.hedtech.banner.ajax.reload.button": "Reload","js.net.hedtech.banner.ajax.reload.prompt": "You may need to reload the page to continue.","js.net.hedtech.banner.ajax.timeout.message": "The server is not responding.","js.net.hedtech.banner.logout.timeout.acknowledgement": "Sign In","js.net.hedtech.banner.logout.timeout.message": "Session expired.","js.net.hedtech.banner.logout.timeout.promptMessage": "You are no longer using a valid session.  You must log back in.","js.notification.NoChangesToSave": "No Changes To Save","js.notification.countlabel": "{0} Notifications","js.notification.delete.template.success": "Template {0} deleted successfully","js.notification.delete.theme.success": "Theme {0} deleted successfully","js.notification.description": "Short cut key is Alt+N","js.notification.dirtyCheck.cancelActionButton": "Cancel","js.notification.dirtyCheck.doNotSaveActionButton": "No","js.notification.dirtyCheck.message": "Changes have been made.","js.notification.dirtyCheck.promptMessage": "Do you want to save changes?","js.notification.dirtyCheck.saveActionButton": "Yes","js.notification.help": "Use TAB to browse through notifications, ESC to close and ALT+N to open or close the notifications","js.notification.inactivityTimer.keepAliveButton": "No","js.notification.inactivityTimer.logoutButton": "Yes","js.notification.inactivityTimer.message": "You have been inactive.  Your session will be logged out shortly for security reasons.","js.notification.inactivityTimer.promptMessage": "Would you like to logout now?","js.notification.label": "Notifications","js.notification.load.theme.success": "Theme {0} loaded successfully","js.notification.mep.buttons.continue": "Continue","js.notification.mep.buttons.logout": "Logout","js.notification.mep.changed.onLoad": "This session can access only {0} information. You can continue in this session, or logout and login again to change institutions.","js.notification.save.emptyName.error": "Theme name is required to create a new theme","js.notification.savePrompt.doNotSaveActionButton": "No","js.notification.savePrompt.message": "You have unsaved changes. Would you like to save?","js.notification.savePrompt.saveActionButton": "Yes","js.notification.success": "Save Successful","js.notification.title": "Notifications Alt+N","js.notification.upload.error": "Error while saving the file, please contact the administrator","js.notification.upload.nodata": "Uploaded file doesn't contain any data","js.notification.upload.success": "File uploaded successfully","js.notification.upload.type": "Upload file should be either JSON/SCSS format","js.number.decimal": ".","js.timepicker.cancel": "CANCEL","js.timepicker.set": "SET","nameDataTable.column.common.button.label": "Go","nameDataTable.column.common.createDate.heading": "Date Created","nameDataTable.column.common.modifiedDate.heading": "Last Updated","nameDataTable.column.common.nodata": "No Results Found","nameDataTable.column.common.pagination.ofLabel": "of","nameDataTable.column.common.pagination.pageLabel": "Page","nameDataTable.column.common.pagination.perPageLabel": "Per Page","nameDataTable.column.common.pagination.recordsFoundLabel": "Total Results","nameDataTable.column.page.name.heading": "Page Name","nameDataTable.column.stylesheet.name.heading": "Stylesheet Name","nameDataTable.column.virtualDomain.name.heading": "Virtual Domain Name","nameDataTable.popup.page.search.placeholder": "Search By Page Name","nameDataTable.popup.stylesheet.pageheader": "Load Stylesheet","nameDataTable.popup.stylesheet.search.placeholder": "Search By Stylesheet Name","nameDataTable.popup.virtualDomain.pageheader": "Load Virtual Domain","nameDataTable.popup.virtualDomain.search.placeholder": "Search By Virtual Domain Name","net.hedtech.banner.title.shortcut": "{0}&lt;br&gt;{1}","notification.dirtyCheck.beforeUnload.promptMessage": "Changes have been made. Data entered has not been saved.","numeric.currency.value": "Numeric Input","numeric.decimal.value": "Decimal Input","numeric.edit.unavailable": "Edit Unavailable","numeric.percent.value": "Percentage Input","pagination.first.label": "First page","pagination.last.label": "Last page","pagination.next.label": "Next page","pagination.page.aria.label": "Go To Page.","pagination.page.label": "Page","pagination.page.of.label": "of","pagination.page.shortcut.label": "Go To Page","pagination.per.page.label": "Per Page","pagination.previous.label": "Previous page","pagination.record.found": "Results found","pb.template.upload.ok.label": "Finished","pillbox.friday": "Friday","pillbox.friday.abbreviation": "F","pillbox.monday": "Monday","pillbox.monday.abbreviation": "M","pillbox.saturday": "Saturday","pillbox.saturday.abbreviation": "S","pillbox.sunday": "Sunday","pillbox.sunday.abbreviation": "S","pillbox.thursday": "Thursday","pillbox.thursday.abbreviation": "T","pillbox.tuesday": "Tuesday","pillbox.tuesday.abbreviation": "T","pillbox.wednesday": "Wednesday","pillbox.wednesday.abbreviation": "W","platform.shortcut.aria.collapsed": "Collapsed. Use Tab Key to Navigate to Next Section.","platform.shortcut.aria.dialog.description": "This dialog lists all the keyboard shortcuts specific to this application","platform.shortcut.aria.expanded": "Expanded. Use Tab Key to Navigate to Next Section and Down arrow key to navigate to each item in the section","platform.shortcut.aria.focussed": "Use Tab key to navigate to next section or shortcut.","platform.shortcut.aria.instructnavigate": "Use Tab Key to Navigate to Next Section and Down arrow key to navigate to each item in the section","platform.shortcut.aria.sectionheading": "Press Enter to Expand/Collapse the section","screenreader.notification.error": "Error notification","screenreader.notification.flash": "Flash notification","screenreader.notification.warning": "Warning prompt notification","search.aria.label": "Search text field. The short cut is Alt+Y.","search.label": "Search","search.title": "Search (Alt+Y)","securityQA.error": "Please enter Security Question(s) and Answer(s)","securityQA.invaild.pin": "Invalid PIN. Please re-enter PIN","securityQA.invalid.answer": "Answer may not contain the &lt; or &gt; characters","securityQA.invalid.length.answer": "Answer has to be {0} characters or more","securityQA.invalid.length.question": "Question has to be {0} characters or more","securityQA.invalid.number.question": "Each question can be selected or defined, not both. Please choose a question from the drop down or define your own question.","securityQA.invalid.question": "Question may not contain the &lt; or &gt; characters","select2.format.input.too.long.singular": "Please delete 1 character","select2.format.input.too.short.plural": "Please enter {0} more characters","select2.format.input.too.short.singular": "Please enter 1 more character","select2.format.load.more": "Loading more results...","select2.format.loading.failed": "Loading failed","select2.format.multiple.result": "{0} results are available, use up and down arrow keys to navigate.","select2.format.one.result": "One result is available, press enter to select it.","select2.format.searching": "Searching...","select2.format.selection.too.big.singular": "You can only select 1 item","select2.no.matches": "No Matches Found","sspb.css.cssManager.cssName.label": "Select a name for publishing:","sspb.css.cssManager.description.label": "Enter a description:","sspb.css.cssManager.upload.file.label": "Select a file to upload:","sspb.css.cssManager.upload.label": "Upload Stylesheet","sspb.css.cssManager.upload.server.response.label": "Server Response:","sspb.custom.page.default.affirm": "OK","sspb.page.visualbuilder.loadpage.unsaved.changes.message": "All unsaved changes to the current page will be lost. Continue to load page?","sspb.page.visualbuilder.name.invalid.pattern.message": "Name should start with a letter (a-Z) and is followed by letters, digits and underscores","sspb.page.visualbuilder.name.required.message": "Name is Required","sspb.page.visualbuilder.page.cancel.message": "Cancel","sspb.page.visualbuilder.page.continue.message": "Yes","survey.confirm.button.cancel": "Cancel","survey.confirm.button.save": "Save","survey.confirm.title": "View Ethnicity and Race","survey.edit.button.askMeLater": "Ask Me Later","survey.edit.button.continue": "Continue","survey.edit.title": "Update Ethnicity and Race","survey.ethinicity.multiple.selection.invalid": "You may only select one checkbox for Ethnicity.","survey.ethnicity.hispanic": "Hispanic or Latino","survey.ethnicity.nothispanic": "Not Hispanic or Latino","textbox.validation.maxlength": "The maximum Character length should be","textbox.validation.required": "This field is required","timepicker.am.pm.aria.label": "Meridiem list, press up and down arrow keys to change the meridiem and left arrow to move to the minutes list.Press Escape to cancel and Enter to Select Time.","timepicker.error.format.validation": "Invalid time format","timepicker.hour.aria.label": "Hours list, press up and down arrow keys to Change Hours. Press right to move to Minutes section","timepicker.min.aria.24hrs.label": "Minutes list, press up and down arrow keys to change Minutes. Press left arrow key to move to Hours list.","timepicker.min.aria.label": "Minutes list, press up and down arrow keys to change Minutes. Press left arrow key to move to Hours list and Right to Move to meridiem list","timepicker.shortcuts.aria.label": "Press Escape to cancel and Enter to Select Time.","timepicker.textbox.aria.label": "The Time Format is","ui.pillbox.off": "Not on {0}","ui.pillbox.on": "On {0}","ui.pillbox.tooltip.label": "{0}","ui.pillbox.tooltip.separator": ",","uiselect.minimum.input.text": "Please enter {0} or more characters","uiselect.no.results.found.text": "No Result Found!","uiselect.option.selected": "{0}","uiselect.search.disabled.results": "Use up and down arrow keys to navigate","uiselect.search.results": "Searching ... {0} results are available, use up and down arrow keys to navigate.","upload.properties.language.arabic": "Arabic","upload.properties.language.englishau": "English (Australia)","upload.properties.language.englishgb": "English (Great Britain)","upload.properties.language.englishie": "English (Ireland)","upload.properties.language.englishin": "English (India)","upload.properties.language.englishus": "English (United States)","upload.properties.language.fetchFail": "unable to list the properties file","upload.properties.language.frenchca": "French (Canada)","upload.properties.language.frenchfr": "French (France)","upload.properties.language.portuguesebr": "Portuguese (Brazil)","upload.properties.language.primary": "Choose a Primary Locale","upload.properties.language.spanishla": "Spanish (Latin America)","upload.properties.language.uploadFail": "unable to upload the properties file: {0}","userpreference.notification.failure.message": "Unable to change your Language Setting, please try again later.","userpreference.notification.success.message": "Language Setting was successful, please re-login for the preferences to take effect.","userpreference.popup.enhanceExp": "Data Sharing","userpreference.popup.enhanceExp.heading": "Enhance your Experience","userpreference.popup.language.close": "Close","userpreference.popup.language.heading": "Language Setting","userpreference.privacy.setting.section": "Privacy Setting","xe.alert.msg.saved": "Extensions Saved. Please refresh the page to show the extensions applied to the page.","xe.btn.label.cancel": "Cancel","xe.btn.label.submit": "Submit","xe.extension.editor.window.title": "Extension Editor","xe.extensions.json.editor.error": "Error parsing JSON extensions : {0}","xe.js.notification.editextensions.close.cancel": "Cancel","xe.js.notification.editextensions.close.ok": "OK","xe.js.notification.editextensions.close.warningMessage": "Closing this window will discard all changes. Do you wish to continue?","xe.menu.extensibility.SecurityConfiguration": "Security Configuration","xe.menu.extensibility.themeEditor": "Theme Editor","xe.menu.extensibility.uploadProperties": "Upload Properties","xe.menu.extensions.edit": "Edit Extensions","xe.menu.extensions.status": "Show Page Statistics / Status","xe.menu.section.extensibility": "Extensibility","xe.page.errors": "Errors","xe.page.status": "Page Statistics {0}","xe.text.chars.left": "Remaining Characters","xe.text.chars.remaining.aria": "Remaining Characters : {0}","xe.text.limit.over": "Character Limit of {0} has been reached","xe.text.max.chars": "Characters Max"};
+            
+        </script>
+        
+        <script type="text/javascript" src="/BannerExtensibility/assets/lib/jquery/i18n/jquery.ui.datepicker-en.js" ></script>
+        <script type="text/javascript" src="/BannerExtensibility/assets/lib/angular/i18n/angular-locale_en.js" ></script>
+        <script type="text/javascript" src="/BannerExtensibility/assets/modules/pageBuilderDate-mf.js" ></script>
+
+    </body>
+</html>
+

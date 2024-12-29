@@ -1,0 +1,109 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" id="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
+   <meta name="author" content="VMware, Inc.">
+   <meta name="apple-mobile-web-app-capable" content="yes">
+   <meta name="apple-mobile-web-app-status-bar-style" content="white">
+   
+   <!-- This is build path. The origin path is /ui/src/main/webapp/webclient/styles/style.css -->
+   <title>VMware Horizon</title>
+   <link rel="stylesheet"
+         href="/portal/webclient/style.css?v=23148029">
+   <link rel="shortcut icon" href="/portal/favicon.ico?v=23148029">
+   <script type="text/javascript"
+            src="/portal/resources/main.js?v=23148029" async></script>
+</head>
+<body>
+<div class="ui-page ui-body showPage">
+   <div class="ui-content-area login-bg">
+      <div class="container" role="main">
+         <div class="ui-center-panel">
+               <div class="ui-pattern-logo">
+                  <img src="/portal/webclient/icons-23148029/logo.png" alt="VMware Horizon">
+               </div>
+               <div class="ui-indent">
+                  <p>You can connect to an ASU virtual desktop and applications by using the VMware Horizon Client or through the browser.</p>
+                  <p>Unauthorized use is prohibited; Usage may be subject to security testing and monitoring; Misuse is subject to criminal prosecution; No expectation of privacy except as otherwise provided by applicable privacy laws.</p>
+               </div>
+               <div class="portal-ui-list">
+                  <div class="portal-list-item pull-left">
+                     <a class="portal-block" id="nativeClient" tabindex="3" href='https://www.vmware.com/go/viewclients'
+                        title="VMware Horizon Client" data-clients=''>
+                           <div class="portal-native-client">
+                              <img class="portal-native-client-icon" alt='Install VMware Horizon Client'
+                              src="/portal/webclient/icons-23148029/icon_download.svg">
+                           </div>
+                           <div class="portal-list-title">Install VMware Horizon Client</div>
+                     </a>
+
+                     
+                     <a class="nativeClientEntry showOnUAGIDP" href="/portal/nativeclient"
+                        title="Launch Native Client" tabindex="1">
+                           <div class="client-entry">Launch Native Client</div>
+                     </a>
+
+                     <div id="nativeClientSelect" class="nativeClientSelect">
+                        <div id="nativeClientSelectInfo" class="nativeClientSelectInfo" tabindex="1" onclick="skipPageControl.toggleCustomizeOption()" onkeypress="skipPageControl.handleTabToggleCustomizOption(event)">
+                           <div id="selectTextInfo">Chrome Native Client</div>
+                           <span class="icon"></span>
+                        </div>
+                        <div id="nativeClientOption" class="nativeClientOption">
+                           <ul>
+                              <li tabindex="1" onclick="skipPageControl.selectedCustomizeOption(this)" onkeypress="skipPageControl.handleTabSelectedCustomizeOption(event)" data-value='chromeNative'>Chrome Native Client</li>
+                              <li tabindex="1" onclick="skipPageControl.selectedCustomizeOption(this)" onkeypress="skipPageControl.handleTabSelectedCustomizeOption(event)" data-value='arc'>Arc++ Client</li>
+                           </ul>
+                        </div>
+                     </div>
+                     <label class="skipPortal showOnUAGIDP" id="skipPortalPageNative" tabindex="2"
+                              onkeypress="skipPageControl.handleCheckbox(event)">
+                           <input type="radio" id="skipPortalPageCheckboxNative" tabindex="-1" onclick="skipPageControl.handleClick(this)" name="skipPortal">
+                           <p>Check here to skip this screen and always use Native Client.</p>
+                     </label>
+                  </div>
+                  <div class="middle-line"></div>
+                  <div class="portal-list-item pull-right">
+                     <a id="webClient" href="/portal/webclient/index.html"
+                        title="VMware Horizon HTML Access"
+                        class="portal-block" tabindex="1">
+                           <div class="portal-web-client">
+                              <img class="portal-web-client-icon" src="/portal/webclient/icons-23148029/icon_html_access.svg">
+                           </div>
+                           <div class="portal-list-title">VMware Horizon HTML Access</div>
+                     </a>
+                     <label class="skipPortal" id="skipPortalPage" tabindex="2" role="radiogroup" aria-checked="false" onkeypress="skipPageControl.handleCheckbox(event)">
+                        <input type="radio" tabindex="-1" id="skipPortalPageCheckbox" onclick="skipPageControl.handleClick(this)">
+                        <p>Check here to skip this screen and always use HTML Access.</p>
+                     </label>
+                     
+                     <a class="showOnUAGIDP" id="webClientEntry" href="/portal/webclient/index.html" title="VMware Horizon HTML Access" class="portal-block" tabindex="3">
+                           <div class="client-entry html5">VMware Horizon HTML Access</div>
+                     </a>
+                     <label class="skipPortal showOnUAGIDP" id="skipPortalPageHTML5" tabindex="4" onkeypress="skipPageControl.handleCheckbox(event)">
+                           <input type="radio" id="skipPortalPageCheckboxHTML5" tabindex="-1" onclick="skipPageControl.handleClick(this)" name="skipPortal">
+                           <p>Check here to skip this screen and always use HTML Access.</p>
+                     </label>
+                  </div>
+                  <div class="download-title showOnUAGIDP">
+                     <a href='https://www.vmware.com/go/viewclients' tabindex="5" id="downloadText">Click Here to Download VMware Horizon Client</a>
+                  </div>
+               </div>
+         </div>
+         <div class="ui-indent-bottom">
+               <p><a id="downloadLink" href='https://www.vmware.com/go/viewclients' tabindex="4"
+                     title="Download VMware Horizon Client">To see the full list of VMware Horizon Clients, click here.</a></p>
+               <p><a id="helpLinkInPortal" href='https://www.vmware.com/support/viewclients/doc/viewclients_pubs.html' tabindex="5"
+                     title="Help">For help with VMware Horizon, click here.</a></p>
+         </div>
+      </div>
+      <div class="bottom-logo"></div>
+   </div>
+</div>
+</body>
+</html>

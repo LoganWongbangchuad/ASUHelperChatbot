@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+		<link rel='stylesheet' href="//fonts.googleapis.com/css?family=Rokkitt" />
+		<link rel="stylesheet" href="//aic.angelo.edu/css/styles.css" />
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+		<title>MyAccount</title>
+	</head>
+	<body>
+    	<div class="header">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                		<div class="navbar navbar-inverse navbar-static-top" role="navigation">
+                			<div class="navbar-header">
+                				<div class="navbar-brand"><img src="//aic.angelo.edu/img/asu-logo.png" alt="ASU" /> <span><i>My</i>Account</span></div>
+                			</div>
+                			<ul class="nav navbar-nav navbar-right">
+                				<li><a href="#help" data-toggle="modal" data-target="#help"><span class="fa fa-question-circle-o" aria-hidden="true"></span> Help</a></li>
+                			</ul>
+                		</div>
+					</div>
+				</div>
+			</div>
+    	</div>
+
+		<div class="container">
+			<div class="modal fade" id="help" tabindex="-1" role="dialog" aria-labelledby="helpLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title" id="helpLabel">Help</h4>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						</div>
+						<div class="modal-body">
+						    							<p>For technical assistance, please contact:</p>
+							<p><b>IT Service Center</b></p>
+							<p>
+								<span class="fa fa-envelope-o fa-fw" aria-hidden="true"></span> <a href="mailto:servicecenter@angelo.edu">servicecenter@angelo.edu</a><br />
+								<span class="fa fa-mobile fa-fw" aria-hidden="true"></span> 325-942-2911
+							</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+					<ol class="steps clearfix hidden-print">
+						<li style="width: 20%" class="active"><i class="fa fa-user" title="Confirm Identity" data-toggle="tooltip"></i><span class="sr-only">Confirm Identity</span></li>
+						<li style="width: 20%" class=""><i class="fa fa-id-card-o" title="Verify Identity" data-toggle="tooltip"></i><span class="sr-only">Verify Identity</span></li>
+						<li style="width: 20%" class=""><i class="fa fa-file-text-o" title="Terms and Conditions" data-toggle="tooltip"></i><span class="sr-only">Terms and Conditions</span></li>
+						<li style="width: 20%" class=""><i class="fa fa-key" title="Create Password" data-toggle="tooltip"></i><span class="sr-only">Create Password</span></li>
+						<li style="width: 20%" class=""><i class="fa fa-check" title="Complete" data-toggle="tooltip"></i><span class="sr-only">Complete</span></li>
+					</ol>
+
+
+
+
+
+
+<h1 class="page-header">Let’s Get Started</h1>
+<p><p class="lead">You must have an ASU User Account in order to access Angelo State University services such as RamPort, Blackboard, WiFi, and more. To set up your account for the first time, please fill out the following form.</p><p><em>Do not use this form if you already have an ASU User Account. Visit <a href="https://mypassword.angelo.edu" target="_blank">mypassword.angelo.edu</a> for password help or contact the <a href="#help" data-toggle="modal" data-target="#help">IT Service Center</a> for assistance. This form is not for use by Faculty and Staff.</em></p></p>
+<hr />
+<form class="signup" method="post">
+	<div class="form-group">
+		<label for="FName">First Name <i class="fa fa-question-circle" aria-hidden="true" title="Legal first name as entered on your admission application." data-toggle="tooltip"></i></label>
+		<input type="text" class="form-control" id="FName" name="FName" value="" />
+	</div>
+	<div class="form-group">
+		<label for="LName">Last Name <i class="fa fa-question-circle" aria-hidden="true" title="Legal last name as entered on your admission application." data-toggle="tooltip"></i></label>
+		<input type="text" class="form-control" id="LName" name="LName" value="" />
+	</div>
+	<div class="form-group">
+		<label for="dobMonth">Date of Birth <i class="fa fa-question-circle" aria-hidden="true" title="Birth date as entered on your admission application." data-toggle="tooltip"></i></label>
+		<input type="text" class="form-control" id="dobMonth" name="dobMonth" placeholder="MM"   size="4" value="" />
+		<input type="text" class="form-control" id="dobDay"   name="dobDay"   placeholder="DD"   size="4" value="" />
+		<input type="text" class="form-control" id="dobYear"  name="dobYear"  placeholder="YYYY" size="8" value="" />
+	</div>
+	<div class="form-group">
+          <div class="g-recaptcha" data-sitekey="6LdyU6sZAAAAAJbizuCLlLWb5Kg3iwCWaY-IkI0H"></div>
+	
+	</div>
+	<button type="submit" class="btn btn-primary submit" name="submit" value="submit">Continue <i class="fa fa-chevron-right"></i></button>
+</form>
+
+				</div> <!-- .col- -->
+			</div> <!-- .row -->
+		</div> <!-- .container -->
+		<div class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8 offset-sm-2">
+						<div class="navbar-text">© Angelo State University</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        <script src="https://kit.fontawesome.com/f1cc6c31ba.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="//aic.angelo.edu/js/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <script src="//aic.angelo.edu/js/hideShowPassword.min.js"></script>
+        <script src="//aic.angelo.edu/js/jquery.autotab.min.js"></script>
+        <script src="//aic.angelo.edu/js/scripts.js"></script>
+    </body>
+</html>

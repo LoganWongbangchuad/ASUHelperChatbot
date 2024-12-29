@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" 
+        content="Angelo State University device configuration for 802.1x (PEAP, TLS, TTLS) connections. Powered by SecureW2. Visit www.securew2.com to learn more."/>
+<meta name="viewport"
+	content="width=400; initial-scale=0.8; maximum-scale=2;" />
+<meta http-equiv="Content-Security-Policy"
+	  content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; form-action 'self';  style-src 'self' 'unsafe-inline' "/>
+<link type="text/css" rel="stylesheet" href="css/main.css">
+<link rel="SHORTCUT ICON" href="images/favIcon.ico">
+<script src="js/jquery-3.6.4.min.js" ></script>
+<script src="js/all.js?v=5.29.0"></script>
+<script src="js/clipboard.min.js"></script>
+<script src="js/pkiservices.js" type="module"></script>
+<script nomodule src="js/pkiservices.js"></script>
+<script>
+  var deviceConfigId = '69434';
+  var actionId = null;
+  var profileType = '0';
+  generate_i18n_table();
+  setHTMLLangAttribute();
+  function javaVersionCheck(){
+	  var result = 0;
+	  var displayResults = function($$){
+		  result =  $$.isMinVersion('Java', '1.5');
+	  };
+	  PluginDetect.onDetectionDone("java",displayResults);
+	  return result;
+  }
+  </script>
+<title>Angelo State University-secure.angelo.edu | Powered by SecureW2 </title>
+    <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/makojehmiedfbnephoffkknopflhddbc">
+	
+</head>
+<body>
+	<div id="page">
+		<div id="container">
+			<div id="header" role="banner">
+				<div id="logo">
+					<a href="#main" onclick="window.location.reload(true);" style="display: inline-block;">
+						<img src="images/logo.png" alt="Angelo State University logo" />
+					</a>
+				</div>
+			</div>
+			<div id="content" role="main">
+        <script>
+
+
+var device;
+var selectedManually= false;
+
+//read the cookie set while doing oauth to determine if the user has a manually selected OS
+var cookieObjects = document.cookie.split(';');
+var deviceParam;
+for (var i = 0; i < cookieObjects.length; i++) {
+	var c = cookieObjects[i];
+	//we only want the device parameter
+	var deviceObj = "device="
+	while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+	if (c.indexOf(deviceObj) == 0) {
+		deviceParam = c.substring(deviceObj.length, c.length);
+		console.log(deviceParam);
+	}
+}
+
+if (deviceParam != null) {
+	var currentURL = window.location.href;
+	//state= indicates websso success
+	if (currentURL.includes("state=") && !currentURL.includes("device=")) {
+		var urlWithStateAndCode = currentURL.concat("&device="+deviceParam);
+		//append contents of device cookie and reload
+		window.location = urlWithStateAndCode;
+		//clear the device cookie
+		document.cookie = "device=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+	}
+}
+
+var object = '{"osObject":[{"mType":"NORMAL","name":"Android","support":true,"mPreDefined":true,"mEnabledOs":true,"mLogo":{"mPath":".png"},"mSelectedConfiguration":"AUTO_CONFIGURATION","mSelectedStepByStepType":"EXTERNAL_URL","mEnableOtherCertFormats":false,"mShowSettingsText":"","mShowSettings":false,"mStepByStepInstructions":false,"mGuideCaption":"Internal Guide","mGeneralDescription":"","mInternalInstructionSteps":[],"mShowTitle":false},{"mType":"NORMAL","name":"BlackBerry","support":false,"mPreDefined":true,"mEnabledOs":true,"mLogo":{"mPath":".png"},"mSelectedConfiguration":"SELF_CONFIGURATION","mSelectedStepByStepType":"INTERNAL_INSTRUCTION_GUIDE","mEnableOtherCertFormats":false,"mShowSettingsText":"SSID/NetworkName: secure.angelo.edu\u003cbr\u003eSecurityType: WPA2-Enterprise\u003cbr\u003eEncryption: AES\u003cbr\u003eEAP Type: PEAP\u003cbr\u003eInner EAP Type: MSCHAPV2\u003cbr\u003eCA Certificate: \u003cbr/\u003e1. \u003ca href\u003d\\\u0027certificates/5c791bac5f21ceb2b2f0df4f17bca5ea8def68cb.cer\\\u0027\u003eangelo-CERTSRV-CA ( Dec 06 2030 )\u003c/a\u003e\u003cbr\u003e\u003cbr\u003e","mShowSettings":true,"mStepByStepInstructions":true,"mGuideCaption":"Internal Guide","mGeneralDescription":"","mInternalInstructionSteps":[{"mId":131818,"mName":"1. Enable Wi-Fi","mHeader":"","mFooter":"","mPictures":[{"mId":171593,"mPath":".png","mMarkAsDeleted":false}]},{"mId":131819,"mName":"2. Select \\\u0027Set Up Wi-Fi Network\\\u0027","mHeader":"","mFooter":"a) Select Next to continue","mPictures":[{"mId":171594,"mPath":".png","mMarkAsDeleted":false},{"mId":171595,"mPath":".png","mMarkAsDeleted":false}]},{"mId":131820,"mName":"3. Click \\\u0027Scan for Networks\\\u0027","mHeader":"","mFooter":"Wait for a few moments...","mPictures":[{"mId":171596,"mPath":".png","mMarkAsDeleted":false},{"mId":171597,"mPath":".png","mMarkAsDeleted":false}]},{"mId":131821,"mName":"4. Select your network","mHeader":"","mFooter":"a) Select the network \\\u0027secure.angelo.edu\\\u0027 to Continue","mPictures":[{"mId":171598,"mPath":".png","mMarkAsDeleted":false}]},{"mId":131822,"mName":"5. Enter your network information","mHeader":"","mFooter":"a) Select Security Type: PEAP\u003cbr\u003eb) Enter your Username\u003cbr\u003ec) Enter your Password\u003cbr\u003ed) Select CA Certificate: \u003cbr/\u003e1. \u003ca href\u003d\\\u0027certificates/5c791bac5f21ceb2b2f0df4f17bca5ea8def68cb.cer\\\u0027\u003eangelo-CERTSRV-CA ( Dec 06 2030 )\u003c/a\u003e\u003cbr\u003ee) Select Inner Link security: MSCHAPV2\u003cbr\u003ef) Select \\\u0027Connect\\\u0027","mPictures":[{"mId":171599,"mPath":".png","mMarkAsDeleted":false}]},{"mId":131823,"mName":"6. Wait for succesful connection","mHeader":"","mFooter":"","mPictures":[{"mId":171600,"mPath":".png","mMarkAsDeleted":false}]},{"mId":131824,"mName":"7. Store the network settings","mHeader":"","mFooter":"You are now connected and \\\u0027secure.angelo.edu\\\u0027 should appear in the top of your screen.","mPictures":[{"mId":171601,"mPath":".png","mMarkAsDeleted":false},{"mId":171602,"mPath":".png","mMarkAsDeleted":false},{"mId":171603,"mPath":".png","mMarkAsDeleted":false}]}],"mShowTitle":false},{"mType":"NORMAL","name":"Chrome OS","support":true,"mPreDefined":true,"mUserAgent":"CrOS","mEnabledOs":true,"mLogo":{"mPath":".png"},"mSelectedConfiguration":"AUTO_CONFIGURATION","mSelectedStepByStepType":"EXTERNAL_URL","mEnableOtherCertFormats":false,"mShowSettingsText":"SSID/NetworkName: secure.angelo.edu\u003cbr\u003eSecurityType: WPA2-Enterprise\u003cbr\u003eEncryption: AES\u003cbr\u003eEAP Type: PEAP\u003cbr\u003eInner EAP Type: MSCHAPV2\u003cbr\u003eCA Certificate: \u003cbr/\u003e1. \u003ca href\u003d\\\u0027certificates/5c791bac5f21ceb2b2f0df4f17bca5ea8def68cb.cer\\\u0027\u003eangelo-CERTSRV-CA ( Dec 06 2030 )\u003c/a\u003e\u003cbr\u003e\u003cbr\u003e","mShowSettings":true,"mStepByStepInstructions":false,"mGuideCaption":"Internal Guide","mGeneralDescription":"","mInternalInstructionSteps":[{"mId":131825,"mName":"1. Select your network","mHeader":"","mFooter":"a) Choose \\\u0027secure.angelo.edu\\\u0027 in the list of available wireless networks","mPictures":[{"mId":171604,"mPath":".png","mMarkAsDeleted":false}]},{"mId":131826,"mName":"2. Enter your Network information","mHeader":"","mFooter":"a) Choose \\\u0027PEAP\\\u0027 as the EAP method\u003cbr\u003e b) Choose \\\u0027MSCHAPV2\\\u0027 as the Phase 2 authentication\u003cbr\u003e c) Set Server CA certificate to \\\u0027\u003cbr/\u003e1. \u003ca href\u003d\\\u0027certificates/5c791bac5f21ceb2b2f0df4f17bca5ea8def68cb.cer\\\u0027\u003eangelo-CERTSRV-CA ( Dec 06 2030 )\u003c/a\u003e\\\u0027\u003cbr\u003e d) Enter your Username in the Identity box\u003cbr\u003e e) Enter your Password in the Password box\u003cbr\u003e f) Tick the \\\u0027Save identity and password\\\u0027 option and click the Connect button","mPictures":[{"mId":171605,"mPath":".png","mMarkAsDeleted":false}]},{"mId":131827,"mName":"3.Wait for succesfull connection","mHeader":"","mFooter":"","mPictures":[{"mId":171606,"mPath":".gif","mMarkAsDeleted":false}]}],"mShowTitle":true},{"mType":"NORMAL","name":"iPhone\\/iPad","support":true,"mPreDefined":true,"mEnabledOs":true,"mLogo":{"mPath":".png"},"mSelectedConfiguration":"AUTO_CONFIGURATION","mSelectedStepByStepType":"EXTERNAL_URL","mEnableOtherCertFormats":false,"mShowSettingsText":"","mShowSettings":false,"mStepByStepInstructions":false,"mGuideCaption":"Internal Guide","mGeneralDescription":"","mInternalInstructionSteps":[],"mShowTitle":true},{"mType":"NORMAL","name":"Kindle Fire","support":true,"mPreDefined":true,"mEnabledOs":true,"mLogo":{"mPath":".png"},"mSelectedConfiguration":"AUTO_CONFIGURATION","mSelectedStepByStepType":"EXTERNAL_URL","mEnableOtherCertFormats":false,"mShowSettingsText":"","mShowSettings":false,"mStepByStepInstructions":false,"mGuideCaption":"Internal Guide","mGeneralDescription":"","mInternalInstructionSteps":[],"mShowTitle":false},{"mType":"NORMAL","name":"Linux","support":true,"mPreDefined":true,"mEnabledOs":true,"mLogo":{"mPath":".png"},"mSelectedConfiguration":"AUTO_CONFIGURATION","mSelectedStepByStepType":"EXTERNAL_URL","mEnableOtherCertFormats":false,"mShowSettingsText":"","mShowSettings":false,"mStepByStepInstructions":false,"mGuideCaption":"Internal Guide","mGeneralDescription":"","mInternalInstructionSteps":[],"mShowTitle":false},{"mType":"NORMAL","name":"macOSMavericksAndAbove","support":true,"mPreDefined":true,"mEnabledOs":true,"mLogo":{"mPath":".png"},"mSelectedConfiguration":"AUTO_CONFIGURATION","mSelectedStepByStepType":"EXTERNAL_URL","mEnableOtherCertFormats":false,"mShowSettingsText":"","mShowSettings":false,"mStepByStepInstructions":false,"mGuideCaption":"Internal Guide","mGeneralDescription":"","mInternalInstructionSteps":[],"mShowTitle":true},{"mType":"NORMAL","name":"macosxMountainLionBelow","support":false,"mPreDefined":true,"mEnabledOs":false,"mLogo":{"mPath":".png"},"mSelectedConfiguration":"SELF_CONFIGURATION","mSelectedStepByStepType":"INTERNAL_INSTRUCTION_GUIDE","mEnableOtherCertFormats":false,"mShowSettingsText":"SSID/NetworkName: secure.angelo.edu\u003cbr\u003eSecurityType: WPA2-Enterprise\u003cbr\u003eEncryption: AES\u003cbr\u003eEAP Type: PEAP\u003cbr\u003eInner EAP Type: MSCHAPV2\u003cbr\u003eCA Certificate: \u003cbr/\u003e1. \u003ca href\u003d\\\u0027certificates/5c791bac5f21ceb2b2f0df4f17bca5ea8def68cb.cer\\\u0027\u003eangelo-CERTSRV-CA ( Dec 06 2030 )\u003c/a\u003e\u003cbr\u003e\u003cbr\u003e","mShowSettings":true,"mStepByStepInstructions":true,"mGuideCaption":"Internal Guide","mGeneralDescription":"","mInternalInstructionSteps":[{"mId":131828,"mName":"1. From the AirPort dropdown menu","mHeader":"","mFooter":"a) Turn Airport On\u003cbr\u003eb) Select the \\\u0027secure.angelo.edu\\\u0027 network","mPictures":[{"mId":171607,"mPath":".png","mMarkAsDeleted":false}]},{"mId":131829,"mName":"2. In the Airport dialog that opens","mHeader":"","mFooter":"a) Enter your \\\u0027User Name\\\u0027 and \\\u0027Password\\\u0027 \u003cbr\u003eb) Leave \\\u0027802.1X Configuration\\\u0027 as Automatic\u003cbr\u003ec) Tick \\\u0027Remember password\\\u0027 in my keychain\u003cbr\u003ed) Select OK","mPictures":[{"mId":171608,"mPath":".png","mMarkAsDeleted":false}]},{"mId":131830,"mName":"3. In the Verify Certificate dialog that opens","mHeader":"","mFooter":"a) Select \\\u0027Show Certificate\\\u0027","mPictures":[{"mId":171609,"mPath":".png","mMarkAsDeleted":false}]},{"mId":131831,"mName":"4. In the next dialog","mHeader":"","mFooter":"a) Verify the Certificate Authority information. Make sure it matches the following Certificate Authority: \\\u0027\u003cbr/\u003e1. \u003ca href\u003d\\\u0027certificates/5c791bac5f21ceb2b2f0df4f17bca5ea8def68cb.cer\\\u0027\u003eangelo-CERTSRV-CA ( Dec 06 2030 )\u003c/a\u003e\\\u0027\u003cbr\u003e\u003cbr\u003eb) If correct select \\\u0027Continue\\\u0027 else contact your helpdesk.\u003cbr\u003e\u003cbr\u003e(Note: if Certificate Authority is \\\"none\\\", select Continue)","mPictures":[{"mId":171610,"mPath":".png","mMarkAsDeleted":false}]},{"mId":131832,"mName":"5. In System Preferences select Network then Airport then select Advanced","mHeader":"","mFooter":"a) Check that the pulldown list is set to Preferred networks\u003cbr\u003eb) Move the \\\u0027secure.angelo.edu\\\u0027 network to the top of the list of networks\u003cbr\u003ec) Select \\\u0027Apply Now\\\u0027 then close System Preferences","mPictures":[{"mId":171611,"mPath":".png","mMarkAsDeleted":false}]}],"mShowTitle":true},{"mType":"NORMAL","name":"Nokia","support":false,"mPreDefined":true,"mEnabledOs":true,"mLogo":{"mPath":".png"},"mSelectedConfiguration":"SELF_CONFIGURATION","mSelectedStepByStepType":"EXTERNAL_URL","mEnableOtherCertFormats":false,"mShowSettingsText":"SSID/NetworkName: secure.angelo.edu\u003cbr\u003eSecurityType: WPA2-Enterprise\u003cbr\u003eEncryption: AES\u003cbr\u003eEAP Type: PEAP\u003cbr\u003eInner EAP Type: MSCHAPV2\u003cbr\u003eCA Certificate: \u003cbr/\u003e1. \u003ca href\u003d\\\u0027certificates/5c791bac5f21ceb2b2f0df4f17bca5ea8def68cb.cer\\\u0027\u003eangelo-CERTSRV-CA ( Dec 06 2030 )\u003c/a\u003e\u003cbr\u003e\u003cbr\u003e","mShowSettings":true,"mStepByStepInstructions":false,"mGuideCaption":"Internal Guide","mGeneralDescription":"","mInternalInstructionSteps":[],"mShowTitle":false},{"mType":"NORMAL","name":"Non-specific OS","support":false,"mPreDefined":true,"mEnabledOs":true,"mLogo":{"mPath":".png"},"mSelectedConfiguration":"SELF_CONFIGURATION","mSelectedStepByStepType":"EXTERNAL_URL","mEnableOtherCertFormats":false,"mShowSettingsText":"SSID/NetworkName: secure.angelo.edu\u003cbr\u003eSecurityType: WPA2-Enterprise\u003cbr\u003eEncryption: AES\u003cbr\u003eEAP Type: PEAP\u003cbr\u003eInner EAP Type: MSCHAPV2\u003cbr\u003eCA Certificate: \u003cbr/\u003e1. \u003ca href\u003d\\\u0027certificates/5c791bac5f21ceb2b2f0df4f17bca5ea8def68cb.cer\\\u0027\u003eangelo-CERTSRV-CA ( Dec 06 2030 )\u003c/a\u003e\u003cbr\u003e\u003cbr\u003e","mShowSettings":true,"mStepByStepInstructions":false,"mGuideCaption":"Internal Guide","mGeneralDescription":"","mInternalInstructionSteps":[],"mShowTitle":false},{"mType":"NORMAL","name":"User-Defined","support":false,"mPreDefined":true,"mEnabledOs":false,"mLogo":{"mPath":".png"},"mSelectedConfiguration":"SELF_CONFIGURATION","mSelectedStepByStepType":"EXTERNAL_URL","mEnableOtherCertFormats":false,"mShowSettingsText":"SSID/NetworkName: secure.angelo.edu\u003cbr\u003eSecurityType: WPA2-Enterprise\u003cbr\u003eEncryption: AES\u003cbr\u003eEAP Type: PEAP\u003cbr\u003eInner EAP Type: MSCHAPV2\u003cbr\u003eCA Certificate: \u003cbr/\u003e1. \u003ca href\u003d\\\u0027certificates/5c791bac5f21ceb2b2f0df4f17bca5ea8def68cb.cer\\\u0027\u003eangelo-CERTSRV-CA ( Dec 06 2030 )\u003c/a\u003e\u003cbr\u003e\u003cbr\u003e","mShowSettings":true,"mStepByStepInstructions":false,"mGuideCaption":"Internal Guide","mGeneralDescription":"","mInternalInstructionSteps":[],"mShowTitle":false},{"mType":"NORMAL","name":"Windows 10","support":true,"mPreDefined":true,"mEnabledOs":true,"mLogo":{"mPath":".png"},"mSelectedConfiguration":"AUTO_CONFIGURATION","mSelectedStepByStepType":"EXTERNAL_URL","mEnableOtherCertFormats":false,"mShowSettingsText":"","mShowSettings":false,"mStepByStepInstructions":false,"mGuideCaption":"Internal Guide","mGeneralDescription":"","mInternalInstructionSteps":[],"mShowTitle":false},{"mType":"NORMAL","name":"Windows 7","support":true,"mPreDefined":true,"mEnabledOs":false,"mLogo":{"mPath":".png"},"mSelectedConfiguration":"AUTO_CONFIGURATION","mSelectedStepByStepType":"EXTERNAL_URL","mEnableOtherCertFormats":false,"mShowSettingsText":"","mShowSettings":false,"mStepByStepInstructions":false,"mGuideCaption":"Internal Guide","mGeneralDescription":"","mInternalInstructionSteps":[],"mShowTitle":false},{"mType":"NORMAL","name":"Windows 8","support":true,"mPreDefined":true,"mEnabledOs":false,"mLogo":{"mPath":".png"},"mSelectedConfiguration":"AUTO_CONFIGURATION","mSelectedStepByStepType":"EXTERNAL_URL","mEnableOtherCertFormats":false,"mShowSettingsText":"","mShowSettings":false,"mStepByStepInstructions":false,"mGuideCaption":"Internal Guide","mGeneralDescription":"","mInternalInstructionSteps":[],"mShowTitle":false},{"mType":"NORMAL","name":"Windows 8.1","support":true,"mPreDefined":true,"mEnabledOs":false,"mLogo":{"mPath":".png"},"mSelectedConfiguration":"AUTO_CONFIGURATION","mSelectedStepByStepType":"EXTERNAL_URL","mEnableOtherCertFormats":false,"mShowSettingsText":"","mShowSettings":false,"mStepByStepInstructions":false,"mGuideCaption":"Internal Guide","mGeneralDescription":"","mInternalInstructionSteps":[],"mShowTitle":false},{"mType":"NORMAL","name":"Windows Mobile","support":false,"mPreDefined":true,"mEnabledOs":true,"mLogo":{"mPath":".png"},"mSelectedConfiguration":"SELF_CONFIGURATION","mSelectedStepByStepType":"EXTERNAL_URL","mEnableOtherCertFormats":false,"mShowSettingsText":"SSID/NetworkName: secure.angelo.edu\u003cbr\u003eSecurityType: WPA2-Enterprise\u003cbr\u003eEncryption: AES\u003cbr\u003eEAP Type: PEAP\u003cbr\u003eInner EAP Type: MSCHAPV2\u003cbr\u003eCA Certificate: \u003cbr/\u003e1. \u003ca href\u003d\\\u0027certificates/5c791bac5f21ceb2b2f0df4f17bca5ea8def68cb.cer\\\u0027\u003eangelo-CERTSRV-CA ( Dec 06 2030 )\u003c/a\u003e\u003cbr\u003e\u003cbr\u003e","mShowSettings":true,"mStepByStepInstructions":false,"mGuideCaption":"Internal Guide","mGeneralDescription":"","mInternalInstructionSteps":[],"mShowTitle":false},{"mType":"NORMAL","name":"Windows Phone","support":false,"mPreDefined":true,"mEnabledOs":true,"mLogo":{"mPath":".png"},"mSelectedConfiguration":"SELF_CONFIGURATION","mSelectedStepByStepType":"EXTERNAL_URL","mEnableOtherCertFormats":false,"mShowSettingsText":"SSID/NetworkName: secure.angelo.edu\u003cbr\u003eSecurityType: WPA2-Enterprise\u003cbr\u003eEncryption: AES\u003cbr\u003eEAP Type: PEAP\u003cbr\u003eInner EAP Type: MSCHAPV2\u003cbr\u003eCA Certificate: \u003cbr/\u003e1. \u003ca href\u003d\\\u0027certificates/5c791bac5f21ceb2b2f0df4f17bca5ea8def68cb.cer\\\u0027\u003eangelo-CERTSRV-CA ( Dec 06 2030 )\u003c/a\u003e\u003cbr\u003e\u003cbr\u003e","mShowSettings":true,"mStepByStepInstructions":false,"mGuideCaption":"Internal Guide","mGeneralDescription":"","mInternalInstructionSteps":[],"mShowTitle":false},{"mType":"NORMAL","name":"Windows RT","support":true,"mPreDefined":true,"mUserAgent":"MSIE 10.0; Windows NT.*; ARM","mEnabledOs":false,"mLogo":{"mPath":".png"},"mSelectedConfiguration":"AUTO_CONFIGURATION","mSelectedStepByStepType":"EXTERNAL_URL","mEnableOtherCertFormats":false,"mShowSettingsText":"","mShowSettings":false,"mStepByStepInstructions":false,"mGuideCaption":"Internal Guide","mGeneralDescription":"","mInternalInstructionSteps":[],"mShowTitle":false},{"mType":"NORMAL","name":"Windows Vista","support":true,"mPreDefined":true,"mEnabledOs":false,"mLogo":{"mPath":".png"},"mSelectedConfiguration":"AUTO_CONFIGURATION","mSelectedStepByStepType":"EXTERNAL_URL","mEnableOtherCertFormats":false,"mShowSettingsText":"","mShowSettings":false,"mStepByStepInstructions":false,"mGuideCaption":"Internal Guide","mGeneralDescription":"","mInternalInstructionSteps":[],"mShowTitle":false},{"mType":"NORMAL","name":"Windows XP","support":true,"mPreDefined":true,"mEnabledOs":false,"mLogo":{"mPath":".png"},"mSelectedConfiguration":"AUTO_CONFIGURATION","mSelectedStepByStepType":"EXTERNAL_URL","mEnableOtherCertFormats":false,"mShowSettingsText":"","mShowSettings":false,"mStepByStepInstructions":false,"mGuideCaption":"Internal Guide","mGeneralDescription":"","mInternalInstructionSteps":[],"mShowTitle":false}]}'; 
+var obj = eval ("(" + object + ")");
+var osCount = parseInt(20);
+
+storeMacAddressIfAvailable();
+
+if (getParameter("device")) {
+  // Return the decoded string
+  BrowserDetect.OS = unescape(String(getParameter("device")).replace(/\+/g, " "));
+  if(BrowserDetect.OS==='Mac OS X')
+    BrowserDetect.OS = 'macosxMountainLionBelow';
+  selectedManually = true;
+  generate_i18n_table();
+}
+
+if (getParameter("success")) {
+  document.write("<div id=\"error\">"+_format('Thank you for configuring your device for our Network.',deviceConfigId,actionId)+"</div>");
+	document.write("<div id=\"back\"> <button id=\"createcertbutton\" onclick=\"location.href='index.html';\" aria-label=\"Go back to index page\" style=\"background: #B01119;\">" +
+			_format('Back', deviceConfigId, actionId) +"</button></div>");
+} else if (getParameter("error")) {
+  document.write("<div id=\"error\">"+_format('We have encountered an issue and could not proceed further. Select the back button and retry your connection. This could be due to cancellation of the process, hardware compatibility or your operating system may not be supported. Contact IT the support team for assistance.',deviceConfigId,actionId)+"${DetailErrorInput}</div>");
+  if (BrowserDetect.OS=="Windows 7"||BrowserDetect.OS=="Windows 8"||BrowserDetect.OS=="Windows XP"||BrowserDetect.OS=="Windows Vista"||BrowserDetect.OS=="Windows 8.1"|| BrowserDetect.OS=="Windows10AndAbove") {
+    document.write("<div id=\"installer-manual\">"+_format('If the installer did not launch correctly click <a href=\"?exe\"/>here</a> to download the installer manually.',deviceConfigId,actionId)+"</div>");//doubt
+  }
+  document.write("<div id=\"retry\"><a href=\"index.html\"/>"+_format('Retry',deviceConfigId,actionId)+"</a></div>");
+} else if (getParameter("exe")) {
+
+    var is64BitWindowsOS = false;
+    var isWindows10PEOS = false;
+
+    if (navigator.userAgent.indexOf("WOW64") != -1 ||
+        navigator.userAgent.indexOf("Win64") != -1 ){
+        is64BitWindowsOS = true;
+    }
+
+    if (window.navigator.userAgent.indexOf("Windows NT 10.0 PE")!= -1)
+        isWindows10PEOS = true;
+
+    document.write("<div id=\"launching\" role=\"heading\" aria-level=\"1\">"+_format('Downloading application...',deviceConfigId,actionId)+'<br><br>'+_format('Your system will download the EXE.',deviceConfigId,actionId)+"<br>"
+    		+_format((profileType != undefined && profileType != null && profileType != '' && profileType == '1')?'When finished go to your Downloaded items and run the application.<b>If you are using Firefox please save your work and close the browser before running the application </b>':'When finished go to your Downloaded items and run the application.',deviceConfigId,actionId)
+    		+"</div>");
+	document.write("<div id=\"back\"> <button id=\"createcertbutton\" onclick=\"location.href='index.html';\" aria-label=\"Go back to index page\" style=\"background: #B01119;\">" +
+			_format('Back', deviceConfigId, actionId) +"</button></div>");
+
+    if(isWindows10PEOS && is64BitWindowsOS){
+        var wrapperName = "WiFi_ASU_Secure.exe";
+        var wrapperName64Bit = wrapperName.replace(".exe", ".x64.exe");
+        document.write("<iframe style='display: none;' src=\"windows/"+wrapperName64Bit+"\"></iframe>");
+    }else{
+        document.write("<iframe style='display: none;' src=\"windows/WiFi_ASU_Secure.exe\"></iframe>");
+    }
+} else if (getParameter("dmg")) {
+  document.write("<div id=\"launching\" role=\"heading\" aria-level=\"1\">"+_format('Downloading application...',deviceConfigId,actionId)+'<br><br>'+_format('Your system will download and mount the DMG.',deviceConfigId,actionId)+"<br>"
+		  +_format((profileType != undefined && profileType != null && profileType != '' && profileType == '1')?'When finished open Finder and run the mounted "SecureW2 JoinNow" application.<b>If you are using Firefox please save your work and close the browser before running the application</b>':'When finished open Finder and run the mounted "SecureW2 JoinNow" application.',deviceConfigId,actionId)
+		  +"</div>");
+	document.write("<div id=\"back\"> <button id=\"createcertbutton\" onclick=\"location.href='index.html';\" aria-label=\"Go back to index page\" style=\"background: #B01119;\">" +
+			_format('Back', deviceConfigId, actionId) +"</button></div>");
+  if (BrowserDetect.OS == "macOSMavericksAndAbove") {
+	document.write("<iframe style='display: none;' src=\"macosx/dmg/notarized_dmg/WiFi_ASU_Secure.dmg\"></iframe>");
+  }
+}  
+else if (getParameter("run")) {
+    document.write("<div id=\"launching\" role=\"heading\" aria-level=\"1\">"+_format('Downloading application...',deviceConfigId,actionId)+'<br><br>'+_format('Your system will download the SHELL SCRIPT.',deviceConfigId,actionId)+"<br>"+_format('When finished go to your Downloaded items and run the application using the following command:',deviceConfigId,actionId)+"<br><br>"+_format('sh SecureW2_JoinNow.run',deviceConfigId,actionId)+"<br><br><br>"+"</div>");
+	setTimeout(function(){
+         linuxHelpView();
+       }, 1000);
+}
+else {
+	if(!""==""){
+		document.write("<h1 id=\"heading\">"+_format('',deviceConfigId,actionId)+"</h1><br>");
+	}
+	document.write("<div role=\"heading\" aria-level=\"1\" id=\"description\">"+_format('This area is available to provide some basic welcome message to your users, such as, this is our organization\'s Wi-Fi network. Your device has been detected and by Connecting below you will be configured for our secure Wi-Fi Service.',deviceConfigId,actionId)+"</div>");
+
+document.write("<div id=\"os-details-container\">");
+ 
+ if(isVPNProfile){
+ 
+ if(isMacOS()){
+   if(checkIfOsEnabled("macOS",obj.osObject)){
+		var vpnMacOSOperatingSystem = getOperatingSystemObject("macOS",obj.osObject);
+	    document.write("<div id=\"detected\">"+_format('The following system was detected:',deviceConfigId,actionId)+"</div>");
+		var imgPathVpnMAC = vpnMacOSOperatingSystem.mLogo.mPath;
+	    document.write("<div id=\"oslogo\"><img src=\"images/"+vpnMacOSOperatingSystem.name.replace(/[^\w]/gi, '_')+imgPathVpnMAC.substring(imgPathVpnMAC.lastIndexOf(".")
+				,imgPathVpnMAC.length)+"\" alt=\"" +vpnMacOSOperatingSystem.name.replace(/[^\w]/gi, '_') + "\"/></div>");
+		if(vpnMacOSOperatingSystem.mShowTitle){		
+			document.write("<h2>"+BrowserDetect.OS+"</h2>");
+		}		
+	    diplaySelfConfiguration(vpnMacOSOperatingSystem);
+    }
+ }else {
+    var vpnOSFound = false;
+    for(i=0 ; i<osCount ; i++){
+	  if(BrowserDetect.OS!="Windows" && BrowserDetect.OS==obj.osObject[i].name && obj.osObject[i].mEnabledOs){    	   
+		document.write("<div id=\"detected\">"+_format('The following system was detected:',deviceConfigId,actionId)+"</div>");
+		if(obj.osObject[i].mLogo != null && obj.osObject[i].mLogo != undefined){
+			var imgPath = obj.osObject[i].mLogo.mPath;
+			document.write("<div id=\"oslogo\"><img src=\"images/" + obj.osObject[i].name.replace(/[^\w]/gi, '_') + imgPath.substring(imgPath.lastIndexOf("."), imgPath.length)
+					+ "\" alt=\"" + obj.osObject[i].name.replace(/[^\w]/gi, '_') + "\"/></div><br/>");
+		}
+		if(obj.osObject[i].mShowTitle){		
+			document.write("<h2>"+BrowserDetect.OS+"</h2>");
+		}
+		
+		diplaySelfConfiguration(obj.osObject[i]);
+		if(!selectedManually){
+			$.post("php/deploy.php", { operatingSystem:BrowserDetect.OS}).done(function(data) {
+			});
+		}
+		vpnOSFound = true;
+	    break;
+	  }
+	}
+	if(!vpnOSFound){
+        var vpnWindowsOperatingSystem = getOperatingSystemObject("Windows",obj.osObject);
+	   
+	   document.write("<div id=\"detected\">"+_format('The following system was detected:',deviceConfigId,actionId)+"</div>");
+		var imgPathVpnWindows = vpnWindowsOperatingSystem.mLogo.mPath;
+	    
+        document.write("<div id=\"oslogo\"><img src=\"images/windows"+imgPathVpnWindows.substring(imgPathVpnWindows.lastIndexOf(".")
+			,imgPathVpnWindows.length)+"\" alt=\"windows\"/></div>");
+	    
+		if(vpnWindowsOperatingSystem.mShowTitle){		
+			document.write("<h2>"+BrowserDetect.OS+"</h2>");
+		}		
+	    diplaySelfConfiguration(vpnWindowsOperatingSystem);
+ }
+   }
+ }else{
+
+if (BrowserDetect.OS=="Windows 8" && checkIfOsEnabled("Windows 8",obj.osObject)) {
+	var preAuthWithPSKEnabledForWindows = "false";
+	var windows8OperatingSystem = getOperatingSystemObject("Windows 8",obj.osObject);
+    document.write("<div id=\"detected\">"+_format('The following system was detected:',deviceConfigId,actionId)+"</div>");
+	var imgPathWindows = windows8OperatingSystem.mLogo.mPath;
+    document.write("<div id=\"oslogo\"><img src=\"images/"+windows8OperatingSystem.name.replace(/[^\w]/gi, '_')+imgPathWindows.substring(imgPathWindows.lastIndexOf(".")
+			,imgPathWindows.length)+"\" alt="+windows8OperatingSystem.name.replace(/[^\w]/gi, '_')+"\"/></div>");
+	if(windows8OperatingSystem.mShowTitle){		
+		document.write("<h2>"+BrowserDetect.OS+"</h2>");
+	}
+    if (windows8OperatingSystem.mSelectedConfiguration =="AUTO_CONFIGURATION") {                  	  
+      createChooseOptionsForWindows();
+      document.getElementById("chooseClientForWindows").style.display="none";
+	  if(preAuthWithPSKEnabledForWindows == "true"){
+	    showPreauthFieldsForWindows();
+	  }
+	  else{
+		document.write("<div id=\"connect\"><form><input id=\"connectbutton\" type=\"button\" value=\""+_format('JoinNow',deviceConfigId,actionId)+"\" /></form></div>");
+	  }
+	  choose_Java_Direct_Windows("directclient");
+	  document.write("<div id=\"terms\">"+_format('By clicking the JoinNow button you accept the following',deviceConfigId,actionId) + ' <a href=\"'+_format('terms/termsAndConditions.html',deviceConfigId,actionId)+'\">'+_format('terms and conditions',deviceConfigId,actionId)+'</a>.'+"</div>");
+    } else if (windows8OperatingSystem.mSelectedConfiguration =="SELF_CONFIGURATION"){
+		diplaySelfConfiguration(windows8OperatingSystem);			
+	}
+	else {
+      document.write("<div id=\"unknownurl\">"+_format('Dynamic configuration is not supported, please contact your System Administrator.',deviceConfigId,actionId)+"</div>");
+    }
+  }else if (BrowserDetect.OS=="Windows 8.1" && checkIfOsEnabled("Windows 8.1",obj.osObject)) {
+	var preAuthWithPSKEnabledForWindows = "false";
+	var windows8OperatingSystem = getOperatingSystemObject("Windows 8.1",obj.osObject);
+    document.write("<div id=\"detected\">"+_format('The following system was detected:',deviceConfigId,actionId)+"</div>");
+	var imgPathWindows = windows8OperatingSystem.mLogo.mPath;
+    document.write("<div id=\"oslogo\"><img src=\"images/"+windows8OperatingSystem.name.replace(/[^\w]/gi, '_')+imgPathWindows.substring(imgPathWindows.lastIndexOf(".")
+			,imgPathWindows.length)+"\" alt=\""+windows8OperatingSystem.name.replace(/[^\w]/gi, '_')+"\"/></div>");
+	if(windows8OperatingSystem.mShowTitle){		
+		document.write("<h2>"+BrowserDetect.OS+"</h2>");
+	}
+    if (windows8OperatingSystem.mSelectedConfiguration =="AUTO_CONFIGURATION") {                  	  
+      createChooseOptionsForWindows();
+      document.getElementById("chooseClientForWindows").style.display="none";
+	  if(preAuthWithPSKEnabledForWindows == "true"){
+	    showPreauthFieldsForWindows();
+	  }
+	  else{
+		document.write("<div id=\"connect\"><form><input id=\"connectbutton\" type=\"button\" value=\""+_format('JoinNow',deviceConfigId,actionId)+"\" /></form></div>");
+	  }
+	  choose_Java_Direct_Windows("directclient");
+	  document.write("<div id=\"terms\">"+_format('By clicking the JoinNow button you accept the following',deviceConfigId,actionId) + ' <a href=\"'+_format('terms/termsAndConditions.html',deviceConfigId,actionId)+'\">'+_format('terms and conditions',deviceConfigId,actionId)+'</a>.'+"</div>");
+    } else if (windows8OperatingSystem.mSelectedConfiguration =="SELF_CONFIGURATION"){
+		diplaySelfConfiguration(windows8OperatingSystem);			
+	}
+	else {
+      document.write("<div id=\"unknownurl\">"+_format('Dynamic configuration is not supported, please contact your System Administrator.',deviceConfigId,actionId)+"</div>");
+    }
+  }else if (BrowserDetect.OS=="Windows10AndAbove" && getFirstEnabledWindows10AndAboveVersion(obj.osObject)!=null) {
+	var preAuthWithPSKEnabledForWindows = "false";
+	var windows10AndAboveOperatingSystem = getOperatingSystemObject(getFirstEnabledWindows10AndAboveVersion(obj.osObject),obj.osObject);
+    document.write("<div id=\"detected\">"+_format('The following system was detected:',deviceConfigId,actionId)+"</div>");
+	//var imgPathWindows = windows10AndAboveOperatingSystem.mLogo.mPath;
+	document.write("<div id=\"oslogo\"><img src=\"images/windows10&above.png\" alt=\"Windows10AndAbove\"/></div>");
+	if(windows10AndAboveOperatingSystem.mShowTitle){		
+		document.write("<h2>"+"10 & Above"+"</h2>");
+	}
+    if (windows10AndAboveOperatingSystem.mSelectedConfiguration =="AUTO_CONFIGURATION") {                  	  
+      createChooseOptionsForWindows();
+      document.getElementById("chooseClientForWindows").style.display="none";
+	  if(preAuthWithPSKEnabledForWindows == "true"){
+	    showPreauthFieldsForWindows();
+	  }
+	  else{
+		document.write("<div id=\"connect\"><form><input id=\"connectbutton\" type=\"button\" value=\""+_format('JoinNow',deviceConfigId,actionId)+"\" /></form></div>");
+	  }
+	  choose_Java_Direct_Windows("directclient");
+	  document.write("<div id=\"terms\">"+_format('By clicking the JoinNow button you accept the following',deviceConfigId,actionId) + ' <a href=\"'+_format('terms/termsAndConditions.html',deviceConfigId,actionId)+'\">'+_format('terms and conditions',deviceConfigId,actionId)+'</a>.'+"</div>");
+    } else if (windows10AndAboveOperatingSystem.mSelectedConfiguration =="SELF_CONFIGURATION"){
+		diplaySelfConfiguration(windows10AndAboveOperatingSystem);			
+	}
+	else {
+      document.write("<div id=\"unknownurl\">"+_format('Dynamic configuration is not supported, please contact your System Administrator.',deviceConfigId,actionId)+"</div>");
+    }
+  }else if (BrowserDetect.OS=="Windows 7" && checkIfOsEnabled("Windows 7",obj.osObject)) {
+    var preAuthWithPSKEnabledForWindows = "false";
+	var windows7OperatingSystem = getOperatingSystemObject("Windows 7",obj.osObject);
+    document.write("<div id=\"detected\">"+_format('The following system was detected:',deviceConfigId,actionId)+"</div>");
+	var imgPathWindows = windows7OperatingSystem.mLogo.mPath;
+    document.write("<div id=\"oslogo\"><img src=\"images/"+windows7OperatingSystem.name.replace(/[^\w]/gi, '_')+imgPathWindows.substring(imgPathWindows.lastIndexOf(".")
+			,imgPathWindows.length)+"\" alt=\""+windows7OperatingSystem.name.replace(/[^\w]/gi, '_')+"\"/></div>");
+	if(windows7OperatingSystem.mShowTitle){		
+		document.write("<h2>"+BrowserDetect.OS+"</h2>");
+	}
+    if (windows7OperatingSystem.mSelectedConfiguration =="AUTO_CONFIGURATION") {                  	  
+      createChooseOptionsForWindows();
+      document.getElementById("chooseClientForWindows").style.display="none";
+	  if(preAuthWithPSKEnabledForWindows == "true"){
+	    showPreauthFieldsForWindows();
+	  }	
+	  else{
+		document.write("<div id=\"connect\"><form><input id=\"connectbutton\" type=\"button\" value=\""+_format('JoinNow',deviceConfigId,actionId)+"\" /></form></div>");
+	  }
+	  choose_Java_Direct_Windows("directclient");
+	  document.write("<div id=\"terms\">"+_format('By clicking the JoinNow button you accept the following',deviceConfigId,actionId) + ' <a href=\"'+_format('terms/termsAndConditions.html',deviceConfigId,actionId)+'\">'+_format('terms and conditions',deviceConfigId,actionId)+'</a>.'+"</div>");
+    } else if (windows7OperatingSystem.mSelectedConfiguration =="SELF_CONFIGURATION"){
+		diplaySelfConfiguration(windows7OperatingSystem);			
+	}
+	else {
+      document.write("<div id=\"unknownurl\">"+_format('Dynamic configuration is not supported, please contact your System Administrator.',deviceConfigId,actionId)+"</div>");
+    }
+  }else if (BrowserDetect.OS=="Windows XP" && checkIfOsEnabled("Windows XP",obj.osObject)) {
+    var preAuthWithPSKEnabledForWindows = "false";
+	var windowsXPOperatingSystem = getOperatingSystemObject("Windows XP",obj.osObject);
+    document.write("<div id=\"detected\">"+_format('The following system was detected:',deviceConfigId,actionId)+"</div>");
+	var imgPathWindows = windowsXPOperatingSystem.mLogo.mPath;
+    document.write("<div id=\"oslogo\"><img src=\"images/"+windowsXPOperatingSystem.name.replace(/[^\w]/gi, '_')+imgPathWindows.substring(imgPathWindows.lastIndexOf(".")
+			,imgPathWindows.length)+"\" alt=\""+ windowsXPOperatingSystem.name.replace(/[^\w]/gi, '_') +"\"/></div>");
+	if(windowsXPOperatingSystem.mShowTitle){		
+		document.write("<h2>"+BrowserDetect.OS+"</h2>");
+	}
+    if (windowsXPOperatingSystem.mSelectedConfiguration =="AUTO_CONFIGURATION") {                  	  
+      createChooseOptionsForWindows();
+      document.getElementById("chooseClientForWindows").style.display="none";
+	  if(preAuthWithPSKEnabledForWindows == "true"){
+	    showPreauthFieldsForWindows();
+	  }
+	  else{
+		document.write("<div id=\"connect\"><form><input id=\"connectbutton\" type=\"button\" value=\""+_format('JoinNow',deviceConfigId,actionId)+"\" /></form></div>");
+	  }
+	  choose_Java_Direct_Windows("directclient");
+	  document.write("<div id=\"terms\">"+_format('By clicking the JoinNow button you accept the following',deviceConfigId,actionId) + ' <a href=\"'+_format('terms/termsAndConditions.html',deviceConfigId,actionId)+'\">'+_format('terms and conditions',deviceConfigId,actionId)+'</a>.'+"</div>");
+    } else if (windowsXPOperatingSystem.mSelectedConfiguration =="SELF_CONFIGURATION"){
+		diplaySelfConfiguration(windowsXPOperatingSystem);			
+	}
+	else {
+      document.write("<div id=\"unknownurl\">"+_format('Dynamic configuration is not supported, please contact your System Administrator.',deviceConfigId,actionId)+"</div>");
+    }
+  } else if (BrowserDetect.OS=="Windows Vista" && checkIfOsEnabled("Windows Vista",obj.osObject)) {
+	var preAuthWithPSKEnabledForWindows = "false";
+	var windowsVistaOperatingSystem = getOperatingSystemObject("Windows Vista",obj.osObject);
+    document.write("<div id=\"detected\">"+_format('The following system was detected:',deviceConfigId,actionId)+"</div>");
+	var imgPathWindows = windowsVistaOperatingSystem.mLogo.mPath;
+    document.write("<div id=\"oslogo\"><img src=\"images/"+windowsVistaOperatingSystem.name.replace(/[^\w]/gi, '_')+imgPathWindows.substring(imgPathWindows.lastIndexOf(".")
+			,imgPathWindows.length)+"\" alt=\""+ windowsVistaOperatingSystem.name.replace(/[^\w]/gi, '_') +"\"/></div>");
+	if(windowsVistaOperatingSystem.mShowTitle){		
+		document.write("<h2>"+BrowserDetect.OS+"</h2>");
+	}
+    if (windowsVistaOperatingSystem.mSelectedConfiguration =="AUTO_CONFIGURATION") {                  	  
+      createChooseOptionsForWindows();
+      document.getElementById("chooseClientForWindows").style.display="none";
+	  if(preAuthWithPSKEnabledForWindows == "true"){
+	    showPreauthFieldsForWindows();
+	  }
+	  else{
+		document.write("<div id=\"connect\"><form><input id=\"connectbutton\" type=\"button\" value=\""+_format('JoinNow',deviceConfigId,actionId)+"\" /></form></div>");
+	  }
+	  choose_Java_Direct_Windows("directclient");
+	  document.write("<div id=\"terms\">"+_format('By clicking the JoinNow button you accept the following',deviceConfigId,actionId) + ' <a href=\"'+_format('terms/termsAndConditions.html',deviceConfigId,actionId)+'\">'+_format('terms and conditions',deviceConfigId,actionId)+'</a>.'+"</div>");
+    } else if (windowsVistaOperatingSystem.mSelectedConfiguration =="SELF_CONFIGURATION"){
+		diplaySelfConfiguration(windowsVistaOperatingSystem);			
+	}
+	else {
+      document.write("<div id=\"unknownurl\">"+_format('Dynamic configuration is not supported, please contact your System Administrator.',deviceConfigId,actionId)+"</div>");
+    }
+  }	else if (BrowserDetect.OS=="macosxMountainLionBelow" && checkIfOsEnabled("macosxMountainLionBelow",obj.osObject)) {
+	var macOSXOperatingSystem = getOperatingSystemObject("macosxMountainLionBelow",obj.osObject);
+    document.write("<div id=\"detected\">"+_format('The following system was detected:',deviceConfigId,actionId)+"</div>");
+	var imgPathMacOSX = macOSXOperatingSystem.mLogo.mPath;
+    document.write("<div id=\"oslogo\"><img src=\"images/macosxMountainLionBelow"+imgPathMacOSX.substring(imgPathMacOSX.lastIndexOf(".")
+			,imgPathMacOSX.length)+"\" alt=\"Mac OS X\"/></div>");
+    if(macOSXOperatingSystem.mShowTitle){		
+		document.write("<h2>Mac OS X</h2> (Mountain Lion & Below)<br><br>");
+	}
+	diplaySelfConfiguration(macOSXOperatingSystem);
+	if(!selectedManually){
+		$.post("php/deploy.php", { operatingSystem:BrowserDetect.OS}).done(function(data) {
+		});
+	}
+    
+  } else if (BrowserDetect.OS=="macOSMavericksAndAbove"
+         && getFirstEnabledMacOSVersionMavericksAndAbove(obj.osObject)!=null){
+     
+	var macMavericksOperatingSystem =  getOperatingSystemObject(getFirstEnabledMacOSVersionMavericksAndAbove(obj.osObject),obj.osObject);
+    
+    document.write("<div id=\"detected\">"+_format('The following system was detected:',deviceConfigId,actionId)+"</div>");
+    document.write("<div id=\"oslogo\"><img src=\"images/genericmacos.png\" alt=\"macOS\"/></div>");
+    
+
+    if (macMavericksOperatingSystem.mSelectedConfiguration =="AUTO_CONFIGURATION") {
+        autoConfigurationForMAC10_7Plus(macMavericksOperatingSystem.name);
+    }else if (macMavericksOperatingSystem.mSelectedConfiguration =="SELF_CONFIGURATION") {
+        diplaySelfConfiguration(macMavericksOperatingSystem);
+    }
+
+}else if ((BrowserDetect.OS=="iPhone/iPad"||BrowserDetect.OS=="iPad" ) && checkIfOsEnabled("iPhone/iPad",obj.osObject)) {
+	var iosOperatingSystem = getOperatingSystemObject("iPhone/iPad",obj.osObject);
+	if(iosOperatingSystem === undefined || iosOperatingSystem === null){
+		iosOperatingSystem = getOperatingSystemObject("iPad",obj.osObject);
+	}
+    document.write("<div id=\"detected\">"+_format('The following system was detected:',deviceConfigId,actionId)+"</div>");
+	var imgPathIOS = iosOperatingSystem.mLogo.mPath;
+    document.write("<div id=\"oslogo\"><img src=\"images/ios"+imgPathIOS.substring(imgPathIOS.lastIndexOf(".")
+			,imgPathIOS.length)+"\" alt=\"iOS\"/></div>");
+    if(iosOperatingSystem.mShowTitle){		
+		document.write("<h2>"+BrowserDetect.OS+"</h2>");
+	}
+
+	if (BrowserDetect.browser!="Safari" && !selectedManually) {
+        document.write("<div id=\"warning\">"+_format('We have detected that you are using an incompatible browser. Please open this URL using your Safari browser.',deviceConfigId,actionId)+"</div>"+"<br><br>");
+            
+	}else{
+		if (iosOperatingSystem.mSelectedConfiguration =="AUTO_CONFIGURATION") {
+		  writeIOSConfiguration(true);
+		  document.write("<div id=\"terms\">"+_format('By clicking the JoinNow button you accept the following',deviceConfigId,actionId) + ' <a href=\"'+_format('terms/termsAndConditions.html',deviceConfigId,actionId)+'\">'+_format('terms and conditions',deviceConfigId,actionId)+'</a>.'+"</div>");
+		
+		}else if (iosOperatingSystem.mSelectedConfiguration =="SELF_CONFIGURATION") {
+			diplaySelfConfiguration(iosOperatingSystem);
+		}else {
+		  document.write("<div id=\"unknownurl\">"+_format('Dynamic configuration is not supported, please contact your System Administrator.',deviceConfigId,actionId)+"</div>");
+		}
+	}
+	
+	
+  } else if (BrowserDetect.OS=="Android" && checkIfOsEnabled("Android",obj.osObject)) {
+	var preAuthWithPSKEnabledForAndroid = "false";
+    var androidOperatingSystem = getOperatingSystemObject("Android",obj.osObject);
+	document.write("<div id=\"detected\">"+_format('The following system was detected:',deviceConfigId,actionId)+"</div>");
+	var imgPathAndroid = androidOperatingSystem.mLogo.mPath;
+    document.write("<div id=\"oslogo\"><img src=\"images/android"+imgPathAndroid.substring(imgPathAndroid.lastIndexOf(".")
+			,imgPathAndroid.length)+"\" alt=\"android\"/></div>");
+	if(androidOperatingSystem.mShowTitle){		
+		document.write("<h2>"+BrowserDetect.OS+"</h2>");
+	}		
+    if (androidOperatingSystem.mSelectedConfiguration =="AUTO_CONFIGURATION") {
+		showDeploymentOptions('Configure via App (configure and connect)');
+    }else if (androidOperatingSystem.mSelectedConfiguration =="SELF_CONFIGURATION") {
+		diplaySelfConfiguration(androidOperatingSystem);
+	}else {
+      document.write("<div id=\"unknownurl\">"+_format('Dynamic configuration is not supported, please contact your System Administrator.',deviceConfigId,actionId)+"</div>");
+    }
+  }else if((BrowserDetect.OS=="Chrome OS")  && checkIfOsEnabled("Chrome OS",obj.osObject)){
+    var chromeOS = getOperatingSystemObject("Chrome OS",obj.osObject);
+	var imgPathChromeOS = chromeOS.mLogo.mPath;
+	document.write("<div id=\"detected\">"+_format('The following system was detected:',deviceConfigId,actionId)+"</div>");
+    document.write("<div id=\"oslogo\"><img src=\"images/Chrome_OS"+imgPathChromeOS.substring(imgPathChromeOS.lastIndexOf(".")
+			,imgPathChromeOS.length)+"\" alt=\"chrome OS\"/></div>");
+	if (chromeOS.mSelectedConfiguration =="AUTO_CONFIGURATION") {
+        writeChromeWebStoreLink();
+        document.write("<div id=\"terms\">"+_format('By clicking the JoinNow button you accept the following',deviceConfigId,actionId) + ' <a href=\"'+_format('terms/termsAndConditions.html',deviceConfigId,actionId)+'\">'+_format('terms and conditions',deviceConfigId,actionId)+'</a>.'+"</div>");
+	}
+	else if (chromeOS.mSelectedConfiguration =="SELF_CONFIGURATION") {
+		diplaySelfConfiguration(chromeOS);
+	}
+	else{
+		document.write("<div id=\"unknownurl\">"+_format('${chromeURL}',deviceConfigId,actionId)+"</div>");
+	}
+  }else if (BrowserDetect.OS=="Windows Phone" && checkIfOsEnabled("Windows Phone",obj.osObject)) {
+	var windowsPhoneOperatingSystem = getOperatingSystemObject("Windows Phone",obj.osObject);
+    document.write("<div id=\"detected\">"+_format('The following system was detected:',deviceConfigId,actionId)+"</div>");
+	var imgPathWindowsPhone = windowsPhoneOperatingSystem.mLogo.mPath;
+    document.write("<div id=\"oslogo\"><img src=\"images/windowsphone"+imgPathWindowsPhone.substring(imgPathWindowsPhone.lastIndexOf(".")
+			,imgPathWindowsPhone.length)+"\" alt=\"Windows Phone\" /></div>");
+	if(windowsPhoneOperatingSystem.mShowTitle){		
+		document.write("<h2>"+BrowserDetect.OS+"</h2>");
+	}		
+	diplaySelfConfiguration(windowsPhoneOperatingSystem);
+	if(!selectedManually){
+			$.post("php/deploy.php", { operatingSystem:BrowserDetect.OS}).done(function(data) {
+			});
+	}
+  } else if (BrowserDetect.OS=="BlackBerry" && checkIfOsEnabled("BlackBerry",obj.osObject)) {
+	var blackBerryOperatingSystem = getOperatingSystemObject("BlackBerry",obj.osObject);
+    document.write("<div id=\"detected\">"+_format('The following system was detected:',deviceConfigId,actionId)+"</div>");
+	var imgPathBlackberry = blackBerryOperatingSystem.mLogo.mPath;
+    document.write("<div id=\"oslogo\"><img src=\"images/blackberry"+imgPathBlackberry.substring(imgPathBlackberry.lastIndexOf(".")
+			,imgPathBlackberry.length)+"\" alt=\"blackberry\"/></div>");
+	if(blackBerryOperatingSystem.mShowTitle){		
+		document.write("<h2>"+BrowserDetect.OS+"</h2>");
+	}		
+    diplaySelfConfiguration(blackBerryOperatingSystem);
+	if(!selectedManually){
+			$.post("php/deploy.php", { operatingSystem:BrowserDetect.OS}).done(function(data) {
+			});
+	}
+	
+  } else if (BrowserDetect.OS=="Linux" && checkIfOsEnabled("Linux",obj.osObject)) {
+	var linuxOperatingSystem = getOperatingSystemObject("Linux",obj.osObject);
+    document.write("<div id=\"detected\">"+_format('The following system was detected:',deviceConfigId,actionId)+"</div><br/>");
+	var imgPathLinux = linuxOperatingSystem.mLogo.mPath;
+    document.write("<div id=\"oslogo\"><img src=\"images/linux"+imgPathLinux.substring(imgPathLinux.lastIndexOf(".")
+			,imgPathLinux.length)+"\" alt=\"linux\" /></div><br/>");
+	if(linuxOperatingSystem.mShowTitle){		
+		document.write("<h2>"+BrowserDetect.OS+"</h2>");
+	}		
+	//Linux Join Now Button
+	if(linuxOperatingSystem.mSelectedConfiguration =="AUTO_CONFIGURATION"){
+		document.write("<div id=\"connect\"><input id=\"connectbutton\" type=\"button\" value=\""+_format('JoinNow',deviceConfigId,actionId)+"\"/></div>");
+		document.write("<div id=\"terms\">"+_format('By clicking the JoinNow button you accept the following',deviceConfigId,actionId) + ' <a href=\"'+_format('terms/termsAndConditions.html',deviceConfigId,actionId)+'\">'+_format('terms and conditions',deviceConfigId,actionId)+'</a>.'+"</div>");
+		document.getElementById("connectbutton").onclick = function() {
+			window.location.href='?run';
+	    }
+	}else if(linuxOperatingSystem.mSelectedConfiguration =="SELF_CONFIGURATION"){
+		diplaySelfConfiguration(linuxOperatingSystem);
+	}else{
+		document.write("<div id=\"unknownurl\">"+_format('Dynamic configuration is not supported, please contact your System Administrator.',deviceConfigId,actionId)+"</div>");
+	}
+  } else if (BrowserDetect.OS=="Kindle Fire" && checkIfOsEnabled("Kindle Fire",obj.osObject)){
+	var kindleFireOperatingSystem = getOperatingSystemObject("Kindle Fire",obj.osObject);
+    document.write("<div id=\"detected\">"+_format('The following system was detected:',deviceConfigId,actionId)+"</div>");
+	var imgPathKindleFire = kindleFireOperatingSystem.mLogo.mPath;
+    document.write("<div id=\"oslogo\"><img src=\"images/kindlefire"+imgPathKindleFire.substring(imgPathKindleFire.lastIndexOf(".")
+			,imgPathKindleFire.length)+"\" alt=\"kindlefire\"/></div><br/>");
+	if(kindleFireOperatingSystem.mShowTitle){		
+		document.write("<h2>"+BrowserDetect.OS+"</h2>");
+	}		
+    if (kindleFireOperatingSystem.mSelectedConfiguration =="AUTO_CONFIGURATION") {
+      if (2) {
+    	  writeKindleAPKSelection(2); 
+      }else {
+        writeKindleAPKSelection(0);
+      }
+      document.write("<div id=\"instructions2\">"+_format("<b>Step 2 (Optional)<\/b>: If you are not prompted for credentials, use the Chrome browser and click on JoinNow below.",deviceConfigId,actionId)+"</div>");
+     
+      var locationURL = [location.protocol, '//', location.host, location.pathname].join('');
+      var currentLocation = locationURL + "android/SecureW2.cloudconfig";
+      document.write("<div id=\"connect\"><form><input id=\"connectbutton\" type=\"button\" value=\""+_format('JoinNow',deviceConfigId,actionId)+"\" onclick=\"window.location.href='intent://scan/#Intent;scheme=securew2;package=com.securew2.paladin;S.urldata='+ currentLocation +';S.browser_fallback_url='+currentLocation+';end'\"/></form></div>");
+
+      
+      document.write("<div id=\"androidnote\">"+_format('noteMessageForAndroid',deviceConfigId,actionId)+"</div><br>");
+      document.write("<div id=\"terms\">"+_format('By clicking the JoinNow button you accept the following',deviceConfigId,actionId) + ' <a href=\"'+_format('terms/termsAndConditions.html',deviceConfigId,actionId)+'\">'+_format('terms and conditions',deviceConfigId,actionId)+'</a>.'+"</div>");
+      
+    }else  if (kindleFireOperatingSystem.mSelectedConfiguration =="SELF_CONFIGURATION") {
+		diplaySelfConfiguration(kindleFireOperatingSystem);
+	} else {
+      document.write("<div id=\"unknownurl\">"+_format('Dynamic configuration is not supported, please contact your System Administrator.',deviceConfigId,actionId)+"</div>");
+    }
+  }else if (BrowserDetect.OS=="Windows RT" && checkIfOsEnabled("Windows RT",obj.osObject)) {
+	var preAuthWithPSKEnabledForWindows = "false";
+	var windowsrtOperatingSystem = getOperatingSystemObject("Windows RT",obj.osObject);
+    document.write("<div id=\"detected\">"+_format('The following system was detected:',deviceConfigId,actionId)+"</div><br/>");
+	var imgPathWindowsRT = windowsrtOperatingSystem.mLogo.mPath;
+    document.write("<div id=\"oslogo\"><img src=\"images/"+windowsrtOperatingSystem.name.replace(/[^\w]/gi, '_')+imgPathWindowsRT.substring(imgPathWindowsRT.lastIndexOf(".")
+			,imgPathWindowsRT.length)+"\" alt=\""+windowsrtOperatingSystem.name.replace(/[^\w]/gi, '_')+"\"/></div><br/>");
+	if(windowsrtOperatingSystem.mShowTitle){		
+		document.write("<h2>"+BrowserDetect.OS+"</h2>");
+	}		
+	//Windows RT Join Now Button
+	if(windowsrtOperatingSystem.mSelectedConfiguration =="AUTO_CONFIGURATION"){
+	    if(preAuthWithPSKEnabledForWindows == "true"){
+	     showPreauthFieldsForWindowsRT();
+	    }
+		else{
+		document.write("<div id=\"connect\"><form name=\"windowsrtForm\" method=\"post\" action=\"php/deploy.php\" onsubmit=\"return windowsrtHelpView();\"><input type=\"hidden\" name=\"request\" id=\"request\" value=\"deployWindowsRT\" /><input  id=\"connectbutton\" type=\"submit\" value=\""+_format('JoinNow',deviceConfigId,actionId)+"\"/></form></div>");
+		}
+		document.write("<div id=\"terms\">"+_format('By clicking the JoinNow button you accept the following',deviceConfigId,actionId) + ' <a href=\"'+_format('terms/termsAndConditions.html',deviceConfigId,actionId)+'\">'+_format('terms and conditions',deviceConfigId,actionId)+'</a>.'+"</div>");
+	}else if(windowsrtOperatingSystem.mSelectedConfiguration =="SELF_CONFIGURATION"){
+		diplaySelfConfiguration(windowsrtOperatingSystem);
+	}
+  }else if (BrowserDetect.OS=="Nokia" && checkIfOsEnabled("Nokia",obj.osObject)) {
+		var nokiaOperatingSystem = getOperatingSystemObject("Nokia",obj.osObject);
+	    document.write("<div id=\"detected\">"+_format('The following system was detected:',deviceConfigId,actionId)+"</div>");
+		var imgPathNokia = nokiaOperatingSystem.mLogo.mPath;
+	    document.write("<div id=\"oslogo\"><img src=\"images/"+nokiaOperatingSystem.name.replace(/[^\w]/gi, '_')+imgPathNokia.substring(imgPathNokia.lastIndexOf(".")
+				,imgPathNokia.length)+"\" alt=\"" + nokiaOperatingSystem.name.replace(/[^\w]/gi, '_') + "\"/></div>");
+		if(nokiaOperatingSystem.mShowTitle){		
+			document.write("<h2>"+BrowserDetect.OS+"</h2>");
+		}		
+	    diplaySelfConfiguration(nokiaOperatingSystem);
+		if(!selectedManually){
+				$.post("php/deploy.php", { operatingSystem:BrowserDetect.OS}).done(function(data) {
+				});
+		}
+		
+  } else if (BrowserDetect.OS=="User-Defined" && checkIfOsEnabled("User-Defined",obj.osObject)) {
+		var userDefinedOperatingSystem = getOperatingSystemObject("User-Defined",obj.osObject);
+	    document.write("<div id=\"detected\">"+_format('The following system was detected:',deviceConfigId,actionId)+"</div>");
+		var imgPathUserDefined = userDefinedOperatingSystem.mLogo.mPath;
+	    document.write("<div id=\"oslogo\"><img src=\"images/"+userDefinedOperatingSystem.name.replace(/[^\w]/gi, '_')+imgPathUserDefined.substring(imgPathUserDefined.lastIndexOf(".")
+				,imgPathUserDefined.length)+"\" alt=\"" +userDefinedOperatingSystem.name.replace(/[^\w]/gi, '_') + "\"/></div>");
+		if(userDefinedOperatingSystem.mShowTitle){		
+			document.write("<h2>"+BrowserDetect.OS+"</h2>");
+		}		
+	    diplaySelfConfiguration(userDefinedOperatingSystem);
+  }else {
+	var osFound = false;
+    for(i=0 ; i<osCount ; i++){
+	  if(BrowserDetect.OS==obj.osObject[i].name && obj.osObject[i].mEnabledOs){    	   
+		document.write("<div id=\"detected\">"+_format('The following system was detected:',deviceConfigId,actionId)+"</div>");
+		if(obj.osObject[i].mLogo != null && obj.osObject[i].mLogo != undefined){
+			var imgPath = obj.osObject[i].mLogo.mPath;
+			document.write("<div id=\"oslogo\"><img src=\"images/"+obj.osObject[i].name.replace(/[^\w]/gi, '_')+imgPath.substring(imgPath.lastIndexOf(".")
+			,imgPath.length)+"\" alt="+obj.osObject[i].name.replace(/[^\w]/gi, '_')+"/></div><br/>");
+		}
+		if(obj.osObject[i].mShowTitle){		
+			document.write("<h2>"+BrowserDetect.OS+"</h2>");
+		}
+		
+		diplaySelfConfiguration(obj.osObject[i]);
+		if(!selectedManually){
+			$.post("php/deploy.php", { operatingSystem:BrowserDetect.OS}).done(function(data) {
+			});
+		}
+		osFound = true;
+	    break;
+	  }
+	}
+	if(!osFound){
+	    BrowserDetect.OS ='Non-specific OS';
+		var unknownOperatingSystem = getOperatingSystemObject("Non-specific OS",obj.osObject);
+		document.write("<div id=\"detected\">"+_format('The following system was detected:',deviceConfigId,actionId)+"</div>");
+		var imgPathUnknownOperatingSystem = unknownOperatingSystem.mLogo.mPath;
+	    document.write("<div id=\"oslogo\"><img src=\"images/"+unknownOperatingSystem.name.replace(/[^\w]/gi, '_')+imgPathUnknownOperatingSystem.substring(imgPathUnknownOperatingSystem.lastIndexOf(".")
+				,imgPathUnknownOperatingSystem.length)+"\" alt=\"" +unknownOperatingSystem.name.replace(/[^\w]/gi, '_') + "\"/></div>");
+		if(unknownOperatingSystem.mShowTitle){
+			document.write("<h2>"+BrowserDetect.OS+"</h2>");
+		}
+
+		diplaySelfConfiguration(unknownOperatingSystem);
+		if(!selectedManually){
+			$.post("php/deploy.php", { operatingSystem:BrowserDetect.OS}).done(function(data) {
+			});
+		}
+	  }
+    }  
+  }  
+  document.write("</div>");    	
+  document.write("<div id=\"browser-detect-manual\">"+_format('Was your device detected incorrectly?',deviceConfigId,actionId)+"</div><br/>");     
+  document.write("<div id=\"deviceSelectContainer\"><label for=\"deviceSelect\">"+_format('Select your device:',deviceConfigId,actionId)+" </label> <select name=\"device\" id=\"deviceSelect\" aria-labelledby=\"manual\" onchange=\"selctOSOnChange(this);\" required>");
+  
+  document.write("</select></div>");
+  
+  var element = document.getElementById('deviceSelect');
+  var addedGenericMacOS =false;  
+  var addedGenericWindowsOS = false;
+  var addedLegacyMacOSX = false;
+  for(i=0 ; i<osCount ; i++){
+	
+	if(obj.osObject[i].mEnabledOs){
+	     
+		var osNameforOptions = obj.osObject[i].name;
+
+		if(checkIfValidGenericMacos(osNameforOptions) && !isVPNProfile)
+		   {
+		    if (addedGenericMacOS == false) {
+				element.add(new Option("macOS", "macOSMavericksAndAbove"));
+				addedGenericMacOS = true;
+			}
+		}
+		else if (checkIfValidLegacyMacOSX(osNameforOptions) && !isVPNProfile) {
+			if (!addedLegacyMacOSX) {
+				element.add(new Option("Mac OS X", "macosxMountainLionBelow"));
+				addedLegacyMacOSX = true;
+			}
+		}
+		else if(isWindows10AndAbove(osNameforOptions) && !isVPNProfile){
+			if(!addedGenericWindowsOS){
+				element.add(new Option("Windows 10 & Above","Windows10AndAbove"));
+			    addedGenericWindowsOS = true;
+			}
+		}
+		else{
+		   	element.add(new Option(osNameforOptions,osNameforOptions));
+		}
+	 }
+  }	
+  
+  var myOpts = document.getElementById('deviceSelect').options;
+  var optionSelected = false;
+  
+  for(i_device_count = 0; i_device_count < myOpts.length; i_device_count++){
+		if(myOpts[i_device_count].value == BrowserDetect.OS){			
+			myOpts[i_device_count].selected = true;
+			optionSelected = true;
+			break;
+		}
+  }
+  
+  if(!optionSelected){
+	if(isVPNProfile){
+    document.getElementById('deviceSelect').value = isMacOS()?"macOS":"Windows";
+  }else{
+	document.getElementById('deviceSelect').value = "Non-specific OS";
+  }
+	
+ }
+  
+}
+  </script>
+				<noscript>The system has detected that Javascript has
+					been disabled in your browser settings. Please enable Javascript
+					then return to this page.</noscript>
+			</div>
+			<div id="footer" role="contentinfo">
+				<script>
+					if(BrowserDetect.OS=="iPhone/iPad"||BrowserDetect.OS=="iPad"|| BrowserDetect.OS=="Chrome OS" ||  (BrowserDetect.OS.indexOf("Mac OS X")>-1) ) {
+						var helpUrl = "";
+					//	var helpCaption = "Help";
+						var helpCaption = _format("Help",deviceConfigId,actionId);
+						var helpCaptionLength = helpCaption.length;
+						var helpCaptionLengthSub = (helpCaption.length - 4);
+						var marginrightPercent = 71;
+						if(helpCaptionLengthSub > 0){
+							var marginrightPercent = 71 - ((helpCaptionLengthSub) + ((helpCaptionLengthSub / 2) - 1));
+						}
+						if (helpUrl.length > 0) {
+							document.write("<a id=\"help\" href=\"" + helpUrl + "\" target=\"_blank\" style=\"margin-right:" + marginrightPercent + "%" + "\">" + _format(helpCaption,deviceConfigId,actionId) + "</a>");
+						}
+					}
+				</script>
+				<a id="privacy-policy-anchor"  href="#"> Privacy Policy</a>
+				<a id="poweredby" href="https://www.securew2.com"> Powered by securew2.com</a></div>
+		   </div>
+	</div>
+	<script>
+		$(document).ready(function(){
+			var landingPageHostedOriginURL = window.location.origin; 
+			var privacyPolicyAnchorElement = $("#privacy-policy-anchor");
+			
+			if(privacyPolicyAnchorElement != undefined && privacyPolicyAnchorElement != null) {
+			
+				if(landingPageHostedOriginURL != undefined && landingPageHostedOriginURL != null && landingPageHostedOriginURL.trim().length > 0 
+					&& (landingPageHostedOriginURL.indexOf("securew2.net") > 0 || landingPageHostedOriginURL.indexOf("securew2.com") > 0 )) {
+					privacyPolicyAnchorElement.attr("href", landingPageHostedOriginURL+"/public/general/privacy-policy.html");
+				} else {
+					privacyPolicyAnchorElement.attr("href", "https://cloud.securew2.com/public/general/privacy-policy.html");
+				}
+			}
+		});
+	</script>
+</body>
+</html>

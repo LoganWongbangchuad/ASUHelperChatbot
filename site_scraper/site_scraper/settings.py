@@ -19,6 +19,13 @@ NEWSPIDER_MODULE = "site_scraper.spiders"
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
+
+# Set the delay between requests
+DOWNLOAD_DELAY = 2  # Delay in seconds between requests
+
+# Enable randomizing the delay to make the crawl less predictable
+RANDOMIZE_DOWNLOAD_DELAY = True
+
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 

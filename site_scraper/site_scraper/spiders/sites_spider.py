@@ -26,7 +26,13 @@ class SitesSpider(scrapy.Spider):
         for href in response.css("a::attr(href)").getall():
             # Convert relative links to absolute URLs
             link = response.urljoin(href)
-            
-            # Only follow links starting with angelo.edu
+
+            # Check if the link contains @angelo.edu (i.e., an email address)
+            if "@angelo.edu" in link:
+                self.log(f"Skipping email address: {link}")
+                continue  # Skip this link
+
+            # Only follow links starting with angelo.edu or containing angelo.edu
             if "angelo.edu" in link:
+                self.log(f"Following link: {link}")
                 yield scrapy.Request(url=link, callback=self.parse)
