@@ -42,3 +42,30 @@ else:
     # If the file is smaller or equal to 16MB, store normally without chunking
     collection.insert_one(data)  # Insert the data directly as one document
     print("Data inserted into MongoDB!")
+
+# For each collection in the database:
+#    Define fields to index for text search
+#    Create a text index on those fields
+
+db.pages.create_index([("$**", "text")])
+db.scholarships.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
+db.registration.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
+db.admission.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
+db.major.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
+db.course.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
+db.faculty.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
+db.department.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
+db.news.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
+db.event.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
+db.alumni.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
+db.contact.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
+db.clubs.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
+db.work.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
+db.athletics.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
+db.campus.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
+db.library.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
+db.academic.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
+db.student.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
+db.staff.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
+db.general.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
+db.health.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
