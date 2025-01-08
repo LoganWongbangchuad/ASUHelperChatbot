@@ -3,24 +3,28 @@ import openai
 import pymongo
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
-from openai import OpenAI
 
+# --------------------------------------------------
+# Setup: environment variables, MongoDB, and OpenAI
+# --------------------------------------------------
 
 # Get MongoDB URI
-uri = os.getenv("MONGODB_URI")
-
+mongodb_uri = os.getenv("MONGODB_URI")
 # Create a new client and connect to the server
-client = MongoClient(uri, server_api=ServerApi('1'))
+client = MongoClient(mongodb_uri, server_api=ServerApi('1'))
+
+# Access the database and collection
 db = client["web_data"]
 collection = db["pages"]
-# Specify your OpenAI API key and embedding model
-URI = os.getenv("OPENAI_URI")
-#os.environ["OPENAI_API_KEY"] = "OPENAI_URI"
-#openai_client = OpenAI()
-openai_client = OpenAI(api_key=URI)
+
+# Set your OpenAI API key
+openai.api_key = os.getenv("OPENAI_URI")  # or OPENAI_API_KEY, whichever env var you use
+
+# Choose your models
+# 1) For summary (ChatCompletion model)
 SUMMARY_MODEL = "gpt-3.5-turbo"
-# (2) For embedding
-EMBED_MODEL = "text-embedding-3-small"
+# 2) For embedding (recommended model)
+EMBED_MODEL = "text-embedding-ada-002"  # "text-embedding-3-small" is likely unsupported
 
 # --------------------------------------------------
 # Function to Summarize Text
@@ -31,7 +35,6 @@ def summarize_text(long_text: str) -> str:
     Summarize long_text using GPT-3.5 (ChatCompletion).
     Returns the summary as a string.
     """
-    # Prepare messages for ChatCompletion
     messages = [
         {
             "role": "system",
@@ -57,7 +60,7 @@ def summarize_text(long_text: str) -> str:
         return summary
     except Exception as e:
         print(f"Error during summarization: {e}")
-        return ""  # Or handle error appropriately
+        return ""
 
 # --------------------------------------------------
 # Function to Generate Embedding
@@ -65,7 +68,7 @@ def summarize_text(long_text: str) -> str:
 
 def get_embedding(text: str) -> list:
     """
-    Creates an embedding using text-embedding-ada-002 model.
+    Creates an embedding using the specified model.
     Returns the embedding as a list of floats.
     """
     try:
@@ -98,9 +101,9 @@ updated_doc_count = 0
 
 for doc in documents:
     # Combine your fields (title, description, paragraphs) into one big text
-    title = doc["title"]
-    description = doc["description"]
-    paragraphs = doc["paragraphs"]  # list of strings
+    title = doc.get("title", "")
+    description = doc.get("description", "")
+    paragraphs = doc.get("paragraphs", [])  # list of strings
 
     # Combine them into a single text block
     combined_text = f"{title}\n\n{description}\n\n" + "\n".join(paragraphs)
@@ -111,8 +114,7 @@ for doc in documents:
     # 2) Embed the summary
     summary_embedding = get_embedding(summary_text)
 
-    # Save both the summary and embedding if you want
-    # (or just the embedding, depending on your use case)
+    # Save both the summary and embedding
     collection.update_one(
         {"_id": doc["_id"]},
         {
