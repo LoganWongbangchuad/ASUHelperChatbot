@@ -1,0 +1,44 @@
+{
+    "file_name": "sites-term.html",
+    "title": "Select a Term",
+    "description": "No Description",
+    "meta_tags": {
+        "unknown": "IE=edge",
+        "dir": "ltr",
+        "synchronizerToken": "4261bd3d-8a96-4b28-8aff-886a0dab2321",
+        "logLevel": "ERROR",
+        "maxInactiveInterval": "14400",
+        "transactionTimeout": "300",
+        "viewport": "width=device-width, initial-scale=1",
+        "apple-mobile-web-app-capable": "yes",
+        "keepAliveURL": "/StudentRegistrationSsb/ssb/keepAlive/data",
+        "guestLoginEnabled": "false",
+        "userLocale": "en",
+        "footerFadeAwayTime": "40000",
+        "hideSSBHeaderComps": "false",
+        "openSSBInExperience": "false",
+        "aboutUrlContextPath": "/StudentRegistrationSsb/ssb",
+        "requestContext": "/StudentRegistrationSsb",
+        "usageTrackingURL": "/StudentRegistrationSsb/ssb/userPreference/fetchUsageTracking",
+        "isLanguageSettingRequired": "true",
+        "switchTojqueryLegacy": "false",
+        "layout": "bannerWebPage",
+        "menuEndPoint": "/StudentRegistrationSsb/ssb/selfServiceMenu/data",
+        "menuBaseURL": "/StudentRegistrationSsb/ssb"
+    },
+    "headings": [
+        "How would you like to search?"
+    ],
+    "paragraphs": [
+        "Please indicate whether we may use 3rd party analytics and non-essential cookies to improve your experience and our applications.If you agree, the data we collect through these tools may be stored and processed in any country in which Ellucian or its sub-processors maintain facilities or personnel, including the United States.Read the Ellucian privacy notice for more on cookies and analyticsEllucian Privacy Notice",
+        "\u00a9 2013-2024 Ellucian Company L.P. and its affiliates. All rights reserved."
+    ],
+    "list_items": [],
+    "table_headers": [],
+    "table_data": [],
+    "captions": [],
+    "links": [
+        "https://www.ellucian.com/privacy"
+    ],
+    "tables": []
+}

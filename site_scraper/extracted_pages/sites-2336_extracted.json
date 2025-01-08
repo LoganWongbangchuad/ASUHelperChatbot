@@ -1,0 +1,33 @@
+{
+    "file_name": "sites-2336.html",
+    "title": "CS 2336 - Data Structures and Algorithms",
+    "description": "No Description",
+    "meta_tags": {
+        "unknown": "text/html; charset=utf-8"
+    },
+    "headings": [
+        "CS 2336 - Data Structures and Algorithms"
+    ],
+    "paragraphs": [],
+    "list_items": [
+        "Syllabus",
+        "Labs",
+        "DebuggersDDD: Data Display DebuggerDebugging C And C++ Programs Using gdb",
+        "DDD: Data Display Debugger",
+        "Debugging C And C++ Programs Using gdb",
+        "cppreference.com"
+    ],
+    "table_headers": [],
+    "table_data": [],
+    "captions": [],
+    "links": [
+        "https://www.angelo.edu/courses/",
+        "labs/",
+        "../2305/manual/ddd/html/ddd.html",
+        "https://sourceware.org/gdb/onlinedocs/gdb/",
+        "http://en.cppreference.com/w/",
+        "http://www.cs.angelo.edu/~mmotl/",
+        "mailto:Mark.Motl@angelo.edu"
+    ],
+    "tables": []
+}

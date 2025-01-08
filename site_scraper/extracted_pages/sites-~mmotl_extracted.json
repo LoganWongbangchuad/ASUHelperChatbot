@@ -1,0 +1,28 @@
+{
+    "file_name": "sites-~mmotl.html",
+    "title": "Welcome to the Home Page of Mark B. Motl",
+    "description": "No Description",
+    "meta_tags": {
+        "unknown": "text/html; charset=utf-8",
+        "referrer": "no-referrer-when-downgrade"
+    },
+    "headings": [
+        "Mark B. MotlProfessor of Computer ScienceAngelo State University"
+    ],
+    "paragraphs": [],
+    "list_items": [
+        "Fall 2024 CoursesCS 2336 - Data Structures and AlgorithmsCS 4301 - Algorithmic Languages and Compilers",
+        "CS 2336 - Data Structures and Algorithms",
+        "CS 4301 - Algorithmic Languages and Compilers"
+    ],
+    "table_headers": [],
+    "table_data": [],
+    "captions": [],
+    "links": [
+        "2336/",
+        "4301/",
+        "http://www.cs.angelo.edu/~mmotl/",
+        "mailto:Mark.Motl@angelo.edu"
+    ],
+    "tables": []
+}

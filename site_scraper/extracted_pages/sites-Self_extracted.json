@@ -1,0 +1,39 @@
+{
+    "file_name": "sites-Self.html",
+    "title": "MyAccount",
+    "description": "No Description",
+    "meta_tags": {
+        "unknown": "IE=edge",
+        "viewport": "width=device-width, initial-scale=1"
+    },
+    "headings": [
+        "Help",
+        "Let\u2019s Get Started"
+    ],
+    "paragraphs": [
+        "For technical assistance, please contact:",
+        "IT Service Center",
+        "servicecenter@angelo.edu325-942-2911",
+        "You must have an ASU User Account in order to access Angelo State University services such as RamPort, Blackboard, WiFi, and more. To set up your account for the first time, please fill out the following form.Do not use this form if you already have an ASU User Account. Visitmypassword.angelo.edufor password help or contact theIT Service Centerfor assistance. This form is not for use by Faculty and Staff.",
+        "You must have an ASU User Account in order to access Angelo State University services such as RamPort, Blackboard, WiFi, and more. To set up your account for the first time, please fill out the following form.",
+        "Do not use this form if you already have an ASU User Account. Visitmypassword.angelo.edufor password help or contact theIT Service Centerfor assistance. This form is not for use by Faculty and Staff."
+    ],
+    "list_items": [
+        "Help",
+        "Confirm Identity",
+        "Verify Identity",
+        "Terms and Conditions",
+        "Create Password",
+        "Complete"
+    ],
+    "table_headers": [],
+    "table_data": [],
+    "captions": [],
+    "links": [
+        "#help",
+        "mailto:servicecenter@angelo.edu",
+        "https://mypassword.angelo.edu",
+        "#help"
+    ],
+    "tables": []
+}

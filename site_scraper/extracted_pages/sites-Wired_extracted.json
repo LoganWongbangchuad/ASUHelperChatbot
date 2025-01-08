@@ -1,0 +1,22 @@
+{
+    "file_name": "sites-Wired.html",
+    "title": "Angelo State University-Wired | Powered by SecureW2 ",
+    "description": "Angelo State University device configuration for 802.1x (PEAP, TLS, TTLS) connections. Powered by SecureW2. Visit www.securew2.com to learn more.",
+    "meta_tags": {
+        "unknown": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; form-action 'self';  style-src 'self' 'unsafe-inline' ",
+        "description": "Angelo State University device configuration for 802.1x (PEAP, TLS, TTLS) connections. Powered by SecureW2. Visit www.securew2.com to learn more.",
+        "viewport": "width=400; initial-scale=0.8; maximum-scale=2;"
+    },
+    "headings": [],
+    "paragraphs": [],
+    "list_items": [],
+    "table_headers": [],
+    "table_data": [],
+    "captions": [],
+    "links": [
+        "#main",
+        "#",
+        "https://www.securew2.com"
+    ],
+    "tables": []
+}

@@ -1,0 +1,33 @@
+{
+    "file_name": "sites-4301.html",
+    "title": "CS 4301 - Algorithmic Languages and Compilers",
+    "description": "No Description",
+    "meta_tags": {
+        "unknown": "text/html; charset=utf-8"
+    },
+    "headings": [
+        "CS 4301 - Algorithmic Languages and Compilers"
+    ],
+    "paragraphs": [],
+    "list_items": [
+        "Syllabus",
+        "Labs",
+        "DebuggersDDD: Data Display DebuggerDebugging C And C++ Programs Using gdb",
+        "DDD: Data Display Debugger",
+        "Debugging C And C++ Programs Using gdb",
+        "cppreference.com"
+    ],
+    "table_headers": [],
+    "table_data": [],
+    "captions": [],
+    "links": [
+        "https://www.angelo.edu/courses/",
+        "labs/",
+        "../2305/manual/ddd/html/ddd.html",
+        "https://sourceware.org/gdb/onlinedocs/gdb/",
+        "http://en.cppreference.com/w/",
+        "http://www.cs.angelo.edu/~mmotl/",
+        "mailto:Mark.Motl@angelo.edu"
+    ],
+    "tables": []
+}

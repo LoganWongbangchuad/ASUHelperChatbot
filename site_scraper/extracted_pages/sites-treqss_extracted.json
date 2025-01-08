@@ -1,0 +1,40 @@
+{
+    "file_name": "sites-treqss.html",
+    "title": "Angelo State University - Transfer Degree Planner",
+    "description": "No Description",
+    "meta_tags": {
+        "unknown": "IE=edge",
+        "viewport": "width=device-width, initial-scale=1",
+        "theme-color": "#783084",
+        "msapplication-TileColor": "#9f00a7",
+        "msapplication-TileImage": "https://cdn.elluciancloud.com/assets/1.6.0/favicon/mstile-144x144.png"
+    },
+    "headings": [
+        "Transfer Equivalency Self-Service is loading...",
+        "An error occurred while accessing the stateless API."
+    ],
+    "paragraphs": [],
+    "list_items": [
+        "{{app.msg['app.header.debugging.title']}}",
+        "{{app.msg['app.header.aboutIcon.title']}}",
+        "{{app.msg['app.header.helpIcon.title']}}",
+        "{{app.msg['app.header.logoutIcon.title']}}",
+        "{{app.msg['treqss.navigate.basics']}}",
+        "{{app.msg['treqss.navigate.transfer']}}",
+        "{{app.msg['treqss.navigate.results']}}"
+    ],
+    "table_headers": [],
+    "table_data": [],
+    "captions": [],
+    "links": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+    ],
+    "tables": []
+}

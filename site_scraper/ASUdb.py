@@ -1,9 +1,8 @@
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 import json
+from pathlib import Path
 import os
-from pymongo import MongoClient
-import gridfs
 
 # Get MongoDB URI
 uri = os.getenv("MONGODB_URI")
@@ -22,50 +21,28 @@ except Exception as e:
 db = client["web_data"]
 collection = db["pages"]
 
-# Initialize GridFS for large file storage
-fs = gridfs.GridFS(db)
+# Path to the folder containing the JSON files
+folder_path = Path("extracted_pages")
 
-# Load the JSON data
-with open("general_extracted_data.json", "r") as file:
-    data = json.load(file)
+# Iterate through all JSON files in the folder and insert them individually
+for json_file in folder_path.glob("*.json"):
+    # Skip the combined file
+    if json_file.name == "combined_extracted_data.json":
+        print(f"Skipping {json_file.name}.")
+        continue
 
-# Check if the JSON data exceeds 16MB
-json_data_size = len(json.dumps(data).encode('utf-8'))
+    try:
+        with open(json_file, "r", encoding="utf-8") as file:
+            # Load JSON data
+            file_data = json.load(file)
 
-# If the file size is larger than 16MB, store it in GridFS
-if json_data_size > 16 * 1024 * 1024:  # 16MB
-    # Store in GridFS
-    with fs.new_file(filename="general_extracted_data.json") as gridfile:
-        gridfile.write(json.dumps(data).encode('utf-8'))  # Write the encoded JSON data to GridFS
-    print("Large file stored in GridFS.")
-else:
-    # If the file is smaller or equal to 16MB, store normally without chunking
-    collection.insert_one(data)  # Insert the data directly as one document
-    print("Data inserted into MongoDB!")
+            # Insert the data into MongoDB
+            if isinstance(file_data, dict):  # Ensure it's a single document
+                collection.insert_one(file_data)
+            elif isinstance(file_data, list):  # If it's a list of documents
+                collection.insert_many(file_data)
+            print(f"Inserted data from {json_file.name} into MongoDB.")
+    except Exception as e:
+        print(f"Failed to process {json_file.name}: {e}")
 
-# For each collection in the database:
-#    Define fields to index for text search
-#    Create a text index on those fields
-
-db.pages.create_index([("$**", "text")])
-db.scholarships.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
-db.registration.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
-db.admission.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
-db.major.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
-db.course.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
-db.faculty.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
-db.department.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
-db.news.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
-db.event.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
-db.alumni.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
-db.contact.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
-db.clubs.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
-db.work.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
-db.athletics.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
-db.campus.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
-db.library.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
-db.academic.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
-db.student.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
-db.staff.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
-db.general.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
-db.health.create_index([("title", "text"), ("paragraph", "text"), ("content", "text"), ("description", "text")])
+print("All data inserted into MongoDB!")

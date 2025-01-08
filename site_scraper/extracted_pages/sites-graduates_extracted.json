@@ -1,0 +1,67 @@
+{
+    "file_name": "sites-graduates.html",
+    "title": "Graduates and Dean\u2019s Lists \u00b7 Angelo State University",
+    "description": "View the ASU Graduates and Dean\u2019s Lists, share your achievements with friends and family, and create a press release to send to your local media.",
+    "meta_tags": {
+        "viewport": "width=device-width, initial-scale=1",
+        "generator": "LiveWhale",
+        "og:title": "Graduates and Dean\u2019s List Recipients",
+        "og:type": "website",
+        "og:url": "https://www.angelo.edu/commencement/graduates/",
+        "pagename": "Graduates and Dean\u2019s List Recipients",
+        "og:description": "View the ASU Graduates and Dean\u2019s Lists, share your achievements with friends and family, and create a press release to send to your local media.",
+        "description": "View the ASU Graduates and Dean\u2019s Lists, share your achievements with friends and family, and create a press release to send to your local media.",
+        "og:image": "https://www.angelo.edu/live/image/gid/38/width/1260/height/630/crop/1/46193_Header2.jpg",
+        "og:image:secure_url": "https://www.angelo.edu/live/image/gid/38/width/1260/height/630/crop/1/46193_Header2.jpg",
+        "og:image:width": "1260",
+        "og:image:height": "630",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Graduates and Dean\u2019s List Recipients",
+        "twitter:description": "View the ASU Graduates and Dean\u2019s Lists, share your achievements with friends and family, and create a press release to send to your local media.",
+        "twitter:image": "https://www.angelo.edu/live/image/gid/38/width/1260/height/630/crop/1/46193_Header2.jpg",
+        "unknown": "IE=edge",
+        "og:image:alt": "ASU"
+    },
+    "headings": [
+        "Graduates",
+        "",
+        "Help"
+    ],
+    "paragraphs": [
+        "FOR IMMEDIATE RELEASEDate:Contact: Office of Communications and MarketingEmail:communications.marketing@angelo.edu",
+        "Share now with your friends and family on Facebook and Twitter, or click the \u201cPrintable Version\u201d button to generate a personal press release to send to your local media outlet.",
+        "",
+        "City Markersindicate cities represented in the current list.",
+        "Select Radius",
+        "Tags"
+    ],
+    "list_items": [
+        "Help",
+        "Select your graduation term.",
+        "Select which list you would like to see (all Graduates or Dean\u2019s List) and click Get List.",
+        "Use the search field or scroll to find your name on the list.",
+        "Click your name to generate a personal press release to send to your local media outlet, or share now with your friends and family on Facebook and Twitter.",
+        "Select a map marker to filter the list by that city.",
+        "Selected markers are shown in green.",
+        "Click multiple markers to add them to the selection.",
+        "Click selected markers again to remove them from the selection.",
+        "Click anywhere on the map to select pins within a 50 mile radius.",
+        "Click and drag the side handles to resize the selection.",
+        "Click and drag the center handle to move the selection.",
+        "Click pins inside the radius to remove them from the selection.",
+        "Click pins outside the radius to add them to the selection.",
+        "Click the blue shaded area to remove the selection.",
+        "Selected cities appear in tags above the search field.",
+        "Click a tag to remove that city from the selection."
+    ],
+    "table_headers": [],
+    "table_data": [],
+    "captions": [],
+    "links": [
+        "/commencement/graduates/",
+        "#help",
+        "mailto:communications.marketing@angelo.edu",
+        "http://www.facebook.com/sharer.php"
+    ],
+    "tables": []
+}

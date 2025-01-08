@@ -1,0 +1,59 @@
+{
+    "file_name": "sites-page.html",
+    "title": "Banner Page Builder",
+    "description": "No Description",
+    "meta_tags": {
+        "dir": "ltr",
+        "synchronizerToken": "b8c4044d-7331-4153-be3c-63f130f0718c",
+        "logLevel": "ERROR",
+        "maxInactiveInterval": "14400",
+        "viewport": "width=device-width, initial-scale=1",
+        "apple-mobile-web-app-capable": "yes",
+        "keepAliveURL": "/BannerExtensibility/keepAlive/data",
+        "loginEndpoint": "https://pagebuilder.prod.angelo.edu/BannerExtensibility/customPage/page/pbadm.ssoauth?url=/",
+        "guestLoginEnabled": "false",
+        "userLocale": "en",
+        "footerFadeAwayTime": "10000",
+        "hideSSBHeaderComps": "false",
+        "openSSBInExperience": "false",
+        "menuEndPoint": "/BannerExtensibility/ssb/menu",
+        "menuBaseURL": "/BannerExtensibility/ssb",
+        "aboutUrlContextPath": "/BannerExtensibility/ssb",
+        "contextPath": "/BannerExtensibility",
+        "requestContext": "/BannerExtensibility",
+        "usageTrackingURL": "/BannerExtensibility/ssb/userPreference/fetchUsageTracking",
+        "isLanguageSettingRequired": "false",
+        "switchTojqueryLegacy": "false",
+        "layout": "bannerSelfServicePBPage"
+    },
+    "headings": [
+        "ASU Transfer Equivalency",
+        "Chart Definitions:",
+        "Transfer Equivalency Chart{{ TE_S_collegeDS.currentRecord.FULL_ADDRESS }}",
+        "{{ TE_S_collegeDS.currentRecord.FULL_ADDRESS }}"
+    ],
+    "paragraphs": [
+        "Please indicate whether we may use 3rd party analytics and non-essential cookies to improve your experience and our applications.If you agree, the data we collect through these tools may be stored and processed in any country in which Ellucian or its sub-processors maintain facilities or personnel, including the United States.Read the Ellucian privacy notice for more on cookies and analyticsEllucian Privacy Notice",
+        "\u00a9 2013-2024 Ellucian Company L.P. and its affiliates. All rights reserved.",
+        "Core, Non-Equivalent Advanced",
+        "These coursesDOtransfer, but have no exact equivalent to any of ASU's course offerings.",
+        "May count toward degree requirements.",
+        "Core, Non-Equivalent",
+        "These coursesDOtransfer, but have no exact equivalent to any of ASU's course offerings.",
+        "May count toward degree requirements.",
+        "Non-Equivalent, Advanced",
+        "These coursesDOtransfer, but have no exact equivalent to any of ASU's course offerings.",
+        "May count toward degree requirements.",
+        "Non-Equivalent, Non-Advanced",
+        "These coursesDOtransfer, but have no exact equivalent to any of ASU's course offerings.",
+        "Majority of credits count as ASU electives."
+    ],
+    "list_items": [],
+    "table_headers": [],
+    "table_data": [],
+    "captions": [],
+    "links": [
+        "https://www.ellucian.com/privacy"
+    ],
+    "tables": []
+}

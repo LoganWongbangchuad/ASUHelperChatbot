@@ -1,0 +1,65 @@
+{
+    "file_name": "sites-wellness-screening-visitor.html",
+    "title": "COVID-19 Wellness Screening - Visitors \u00b7 Angelo State University",
+    "description": "No Description",
+    "meta_tags": {
+        "viewport": "width=device-width, initial-scale=1",
+        "generator": "LiveWhale",
+        "og:title": "COVID-19 Wellness Screening - Visitors",
+        "og:type": "website",
+        "og:url": "https://www.angelo.edu/wellness-screening-visitor/",
+        "pagename": "COVID-19 Wellness Screening - Visitors",
+        "og:image": "https://www.angelo.edu/live/image/gid/38/width/1260/height/630/crop/1/46193_Header2.jpg",
+        "og:image:secure_url": "https://www.angelo.edu/live/image/gid/38/width/1260/height/630/crop/1/46193_Header2.jpg",
+        "og:image:width": "1260",
+        "og:image:height": "630",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "COVID-19 Wellness Screening - Visitors",
+        "twitter:image": "https://www.angelo.edu/live/image/gid/38/width/1260/height/630/crop/1/46193_Header2.jpg"
+    },
+    "headings": [
+        "COVID-19Visitor Wellness Screening",
+        "",
+        "You have indicated that you have been experiencing symptoms related to COVID-19 or have been exposed to a confirmed or suspected case.",
+        "In order to keep the Ram Fam healthy, please do not come to campus.",
+        "Look for emergency warning signs* of COVID-19.",
+        "Contact a healthcare provider",
+        "Follow your healthcare provider\u2019s recommendations",
+        "Rest and take care"
+    ],
+    "paragraphs": [
+        "This screening tool is intended for use byASU visitorsonly. ASU students and employees must use the screening tool found in RamPort.",
+        "You have been cleared to come to campus.",
+        "",
+        "Please print or screenshot this page to present when you arrive.",
+        "Please do the following:",
+        "If you are showing any of these signs,seek emergency medical care immediately.",
+        "*This list is not all possible symptoms. Please call your medical provider for any other symptoms that are severe or concerning to you.",
+        "Call 911 or call ahead to your local emergency facility: Notify the operator that you are seeking care as you have displayed symptoms associated with COVID-19.",
+        "If you do not have the emergency warning signs, contact a healthcare provider for guidance on additional COVID-19 testing or appropriate healthcare options.",
+        "If you are sick, please stay at home.",
+        "As a convenience, you can fill out one wellness form for all members of your household visiting campus with you. Simply add additional names below.",
+        "Submit"
+    ],
+    "list_items": [
+        "In order to keep the Ram Fam healthy, please do not come to campus.",
+        "Look for emergency warning signs* of COVID-19.If you are showing any of these signs,seek emergency medical care immediately.Trouble breathingPersistent pain or pressure in the chestNew confusionInability to wake or stay awakeBluish lips or face*This list is not all possible symptoms. Please call your medical provider for any other symptoms that are severe or concerning to you.Call 911 or call ahead to your local emergency facility: Notify the operator that you are seeking care as you have displayed symptoms associated with COVID-19.",
+        "Trouble breathing",
+        "Persistent pain or pressure in the chest",
+        "New confusion",
+        "Inability to wake or stay awake",
+        "Bluish lips or face",
+        "Contact a healthcare providerIf you do not have the emergency warning signs, contact a healthcare provider for guidance on additional COVID-19 testing or appropriate healthcare options.",
+        "Follow your healthcare provider\u2019s recommendations",
+        "Rest and take careIf you are sick, please stay at home."
+    ],
+    "table_headers": [],
+    "table_data": [],
+    "captions": [],
+    "links": [
+        "javascript:window.print();",
+        "/covid-19/ram-family-protection-standards.php",
+        "/covid-19/notice-of-covid-19-health-and-safety-protocol.php"
+    ],
+    "tables": []
+}

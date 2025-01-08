@@ -1,0 +1,39 @@
+{
+    "file_name": "sites-view.angelo.edu.html",
+    "title": "VMware Horizon",
+    "description": "No Description",
+    "meta_tags": {
+        "unknown": "IE=edge",
+        "viewport": "initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes",
+        "author": "VMware, Inc.",
+        "apple-mobile-web-app-capable": "yes",
+        "apple-mobile-web-app-status-bar-style": "white"
+    },
+    "headings": [],
+    "paragraphs": [
+        "You can connect to an ASU virtual desktop and applications by using the VMware Horizon Client or through the browser.",
+        "Unauthorized use is prohibited; Usage may be subject to security testing and monitoring; Misuse is subject to criminal prosecution; No expectation of privacy except as otherwise provided by applicable privacy laws.",
+        "Check here to skip this screen and always use Native Client.",
+        "Check here to skip this screen and always use HTML Access.",
+        "Check here to skip this screen and always use HTML Access.",
+        "To see the full list of VMware Horizon Clients, click here.",
+        "For help with VMware Horizon, click here."
+    ],
+    "list_items": [
+        "Chrome Native Client",
+        "Arc++ Client"
+    ],
+    "table_headers": [],
+    "table_data": [],
+    "captions": [],
+    "links": [
+        "https://www.vmware.com/go/viewclients",
+        "/portal/nativeclient",
+        "/portal/webclient/index.html",
+        "/portal/webclient/index.html",
+        "https://www.vmware.com/go/viewclients",
+        "https://www.vmware.com/go/viewclients",
+        "https://www.vmware.com/support/viewclients/doc/viewclients_pubs.html"
+    ],
+    "tables": []
+}
