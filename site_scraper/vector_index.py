@@ -17,7 +17,7 @@ openai.api_key = os.getenv("OPENAI_URI")  # or OPENAI_API_KEY, whichever env var
 # Access the database and collection
 db = client["web_data"]
 collection = db["pages"]
-'''
+
 # Create your index model, then create the search index
 search_index_model = SearchIndexModel(
   definition = {
@@ -30,40 +30,7 @@ search_index_model = SearchIndexModel(
       }
     ]
   },
-  name="vector_index",
+  name="vector_summary_index",
   type="vectorSearch",
 )
 collection.create_search_index(model=search_index_model)
-'''
-# Generate embedding for the search query
-query_embedding = get_embedding("Angelo State University scholarships")
-
-# Sample vector search pipeline
-pipeline = [
-   {
-      "$vectorSearch": {
-            "index": "vector_index",
-            "queryVector": query_embedding,
-            "path": "embedding",
-            "exact": True,
-            "limit": 5
-      }
-   }, 
-   {
-      "$project": {
-         "_id": 0, 
-         "summary": 1,
-         "score": {
-            "$meta": "vectorSearchScore"
-         }
-      }
-   }
-]
-
-# Execute the search
-results = collection.aggregate(pipeline)
-
-# Print results
-for i in results:
-   print(i)
-
