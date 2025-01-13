@@ -1,7 +1,7 @@
 import os
 import pymongo
 import openai
-from embeddings import get_embedding
+from get_embeddings import get_embedding
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from pymongo.operations import SearchIndexModel
@@ -17,7 +17,7 @@ openai.api_key = os.getenv("OPENAI_URI")  # or OPENAI_API_KEY, whichever env var
 # Access the database and collection
 db = client["web_data"]
 collection = db["pages"]
-
+'''
 # Create your index model, then create the search index
 search_index_model = SearchIndexModel(
   definition = {
@@ -34,9 +34,9 @@ search_index_model = SearchIndexModel(
   type="vectorSearch",
 )
 collection.create_search_index(model=search_index_model)
-
+'''
 # Generate embedding for the search query
-query_embedding = get_embedding("scholarships")
+query_embedding = get_embedding("Angelo State University scholarships")
 
 # Sample vector search pipeline
 pipeline = [
@@ -44,7 +44,7 @@ pipeline = [
       "$vectorSearch": {
             "index": "vector_index",
             "queryVector": query_embedding,
-            "path": "summary_embedding",
+            "path": "embedding",
             "exact": True,
             "limit": 5
       }

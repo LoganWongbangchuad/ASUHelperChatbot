@@ -3,6 +3,8 @@ import openai
 import pymongo
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
+from get_embeddings import get_embedding
+
 
 # --------------------------------------------------
 # Setup: environment variables, MongoDB, and OpenAI
@@ -25,7 +27,6 @@ openai.api_key = os.getenv("OPENAI_URI")  # or OPENAI_API_KEY, whichever env var
 SUMMARY_MODEL = "gpt-3.5-turbo"
 # 2) For embedding (recommended model)
 EMBED_MODEL = "text-embedding-ada-002"  # "text-embedding-3-small" is likely unsupported
-
 # --------------------------------------------------
 # Function to Summarize Text
 # --------------------------------------------------
@@ -61,26 +62,6 @@ def summarize_text(long_text: str) -> str:
     except Exception as e:
         print(f"Error during summarization: {e}")
         return ""
-
-# --------------------------------------------------
-# Function to Generate Embedding
-# --------------------------------------------------
-
-def get_embedding(text: str) -> list:
-    """
-    Creates an embedding using the specified model.
-    Returns the embedding as a list of floats.
-    """
-    try:
-        embed_response = openai.Embedding.create(
-            input=[text],
-            model=EMBED_MODEL
-        )
-        embedding_vector = embed_response.data[0]["embedding"]
-        return embedding_vector
-    except Exception as e:
-        print(f"Error creating embedding: {e}")
-        return []
 
 # --------------------------------------------------
 # Main Logic: Summarize then Embed
@@ -128,3 +109,5 @@ for doc in documents:
     updated_doc_count += 1
 
 print(f"Successfully updated {updated_doc_count} documents with summary and summary_embedding.")
+
+
