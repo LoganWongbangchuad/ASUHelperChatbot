@@ -23,7 +23,7 @@ SUMMARY_MODEL = "gpt-3.5-turbo"
 EMBED_MODEL = "text-embedding-ada-002"  # "text-embedding-3-small" is likely unsupported
 
 
-count = 1
+#count = 1
 
 def get_embedding(text: str) -> list:
     global count  # Tell Python we want to modify the global variable 'count'
@@ -33,8 +33,8 @@ def get_embedding(text: str) -> list:
     )
     embedding = response.data[0]["embedding"]
     
-    print(count)
-    count += 1  # increment the global count
+    #print(count)
+    #count += 1  # increment the global count
     
     return embedding
 
