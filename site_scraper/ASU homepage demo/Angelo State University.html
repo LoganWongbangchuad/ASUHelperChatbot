@@ -978,6 +978,9 @@ if ( window.location.pathname + window.location.hash == '/#virtualtour' ) {
         flex-direction: column;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         z-index: 9999; /* Ensures it stays on top of all elements */
+        transition: all 0.3s ease;
+        transform: scale(0.9);
+        opacity: 0;
     }
 
 
@@ -1070,6 +1073,32 @@ if ( window.location.pathname + window.location.hash == '/#virtualtour' ) {
         align-self: flex-end;
         border-top-right-radius: 0;
     }
+
+    .chat-container.open {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    /* Optional: Add keyframe animations for more sophisticated effects */
+    /* Example: Fade In */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Example: Fade Out */
+    @keyframes fadeOut {
+        from { opacity: 1; }
+        to { opacity: 0; }
+    }
+
+    .chat-container.fade-in {
+        animation: fadeIn 0.3s forwards;
+    }
+
+    .chat-container.fade-out {
+        animation: fadeOut 0.3s forwards;
+    }
     
 </style>
 
@@ -1097,50 +1126,90 @@ if ( window.location.pathname + window.location.hash == '/#virtualtour' ) {
 
 <!-- Chatbot JavaScript -->
 <script>
-    function toggleChat() {
-        const chatContainer = document.getElementById('chatContainer');
+    const chatContainer = document.getElementById('chatContainer');
         const chatToggleButton = document.getElementById('chatToggleButton');
-        const isHidden = chatContainer.style.display === 'none' || chatContainer.style.display === '';
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
 
-        chatContainer.style.display = isHidden ? 'flex' : 'none';
-        chatToggleButton.classList.toggle('hidden', isHidden);
-    }
+        function toggleChat() {
+            if (chatContainer.classList.contains('open')) {
+                closeChat();
+            } else {
+                openChat();
+            }
+        }
 
-    function closeChat() {
-        const chatContainer = document.getElementById('chatContainer');
-        const chatToggleButton = document.getElementById('chatToggleButton');
+        function openChat() {
+            // Show the chat container with animation
+            chatContainer.classList.add('open');
+            chatToggleButton.classList.add('hidden');
 
-        chatContainer.style.display = 'none';
-        chatToggleButton.classList.remove('hidden');
-    }
+            // Optionally, focus on the input field
+            setTimeout(() => {
+                chatInput.focus();
+            }, 300);
+        }
 
-    function sendMessage() {
-        const input = document.getElementById('chatInput');
-        const messages = document.getElementById('chatMessages');
-        const userMessage = input.value.trim();
+        function closeChat() {
+            // Hide the chat container with animation
+            chatContainer.classList.remove('open');
+            chatToggleButton.classList.remove('hidden');
+        }
 
-        if (userMessage) {
+        async function sendMessage() {
+            const message = chatInput.value.trim();
+            if (!message) return;
+
+            // Display the user's message
             const userDiv = document.createElement('div');
             userDiv.className = 'message user-message';
-            userDiv.innerText = userMessage;
-            messages.appendChild(userDiv);
+            userDiv.textContent = message;
+            chatMessages.appendChild(userDiv);
 
-            const botDiv = document.createElement('div');
-            botDiv.className = 'message bot-message';
-            botDiv.innerHTML = '<span class="bot-icon">&#x1F916;</span><span>Let me think...</span>';
-            messages.appendChild(botDiv);
+            // Clear the input field
+            chatInput.value = '';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
 
-            input.value = '';
-            messages.scrollTop = messages.scrollHeight;
+            try {
+                // Send the message to the backend
+                const response = await fetch('http://127.0.0.1:5000/generate_response', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message: message })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const data = await response.json();
+                const botResponse = data.response || "I'm sorry, I couldn't process your request.";
+
+                // Display the bot's response
+                const botDiv = document.createElement('div');
+                botDiv.className = 'message bot-message';
+                botDiv.innerHTML = `<span class="bot-icon">&#x1F916;</span><span>${botResponse}</span>`;
+                chatMessages.appendChild(botDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            } catch (error) {
+                console.error('Error:', error);
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'message bot-message';
+                errorDiv.innerHTML = `<span class="bot-icon">&#x1F916;</span><span>Sorry, something went wrong. Please try again later.</span>`;
+                chatMessages.appendChild(errorDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
         }
-    }
-    
-    document.getElementById('chatInput').addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') {
-            event.preventDefault(); // Prevent default form submission (if applicable)
-            sendMessage(); // Call the sendMessage function
-        }
-    });
+
+        // Allow sending messages via Enter key
+        chatInput.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent form submission if inside a form
+                sendMessage();
+            }
+        });
 </script>
 
 	
