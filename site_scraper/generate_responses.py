@@ -3,17 +3,32 @@
 import os
 import openai
 import numpy as np
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from retrieval import get_query_results  # Ensure this is correctly implemented
+from retrieval import get_query_results  # Ensure this module is correctly implemented
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes. Adjust as needed for security.
 
-# Set your OpenAI API key as an environment variable for security
-# For example, in your terminal:
-# export OPENAI_API_KEY='your-api-key'
-openai.api_key = os.getenv("OPENAI_API_KEY")  # Ensure this environment variable is set
+
+
+
+
+
+# Get MongoDB URI
+uri = os.getenv("MONGODB_URI")
+
+# Create a new client and connect to the server
+client = MongoClient(uri, server_api=ServerApi('1'))
+
+# Set your OpenAI API key from the environment variable
+# Ensure that OPENAI_URI contains only the API key
+openai.api_key = os.getenv("OPENAI_URI")  # Ensure this environment variable is set
+
+# Optional: Debugging - print the API key (remove in production)
+# print(f"OpenAI API Key: {openai.api_key}")  # Uncomment for debugging
 
 def cosine_similarity(vec_a, vec_b):
     """Calculate the cosine similarity between two vectors."""
@@ -80,8 +95,8 @@ def generate_response():
         
             # 6. Fallback to regular ChatGPT with a simpler prompt
             fallback_prompt = (
-                f"You are a helpful assistant. The user asked: '{query}'. "
-                f"Please provide the best possible answer for all questions "
+                f"You are a helpful Angelo State University assistant. The user asked: '{query}'. "
+                f"Please provide the best possible answer for only questions "
                 f"related to Angelo State University or ASU."
                 f"You should search the internet to find answers to the questions."
             )
@@ -106,13 +121,13 @@ def generate_response():
             # compare with general ChatGPT.
         
             check_prompt = (
-                f"You are ChatGPT. The user asked: '{query}'. "
-                f"Please provide the best possible answer."
+                f"You are a Angelo State University helpful assistant. The user asked: '{query}'. "
+                f"Please provide the best possible answer for questions only related to Angelo State University."
             )
             check_response = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=[
-                    {"role": "system", "content": "You are ChatGPT, a helpful assistant."},
+                    {"role": "system", "content": "You are a Angelo State University helpful assistant."},
                     {"role": "user", "content": check_prompt}
                 ],
                 max_tokens=150,
